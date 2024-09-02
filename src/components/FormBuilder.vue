@@ -1,10 +1,10 @@
 <template>
     <div :class="[styles.CONTAINER.FLUID, 'form-padding', 'vue-form-builder']">
         <!-- top configuration -->
-        <FormConfiguration
+        <!-- <FormConfiguration
             :permissions="permissions"
             v-model="formData.formConfig"
-        />
+        /> -->
 
         <!-- form headline -->
         <div class="form-headline-container" v-show="formData.formConfig.isShowHeadline">
@@ -39,8 +39,6 @@
         />
 
         <hr>
-
-        <p class="copyright-text" v-text="copyrightText"></p>
     </div>
 </template>
 

@@ -57,6 +57,7 @@
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     import {EVENT_CONSTANTS} from "@/configs/events";
     import {SECTION_TYPES} from "@/configs/section";
+    import {SHOW_SECTION_LIST,updateSectionList} from "@/configs/show-section-list";
     import SidebarRenderer from "@/libraries/sidebar-renderer.class";
     import SidebarSectionConfiguration from "@/views/builder/sidebar-config-views/SidebarSectionConfiguration";
 
@@ -110,6 +111,7 @@
 
                 // submit to delete
                 this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SECTION.DELETE, this.section.uniqueId)
+                updateSectionList(null, this.section, "delete")
             },
 
             /**

@@ -24,7 +24,7 @@
     import {EVENT_CONSTANTS} from "@/configs/events";
     import {ALERT_DIALOG} from "@/libraries/alert-dialog";
 
-    const SIDEBAR_WIDTH_SIZE = "300px"
+    const SIDEBAR_WIDTH_SIZE = "325px"
 
     export default {
         name: "GlobalSidebar",
@@ -134,3 +134,8 @@
         }
     }
 </script>
+<style>
+.sidebar{
+ margin-top: 55px;
+}
+</style>

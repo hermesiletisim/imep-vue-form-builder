@@ -40,13 +40,39 @@
                     <span v-show="!readOnly">Turn on ReadOnly mode</span>
                 </button>
             </div>
+            <button @click="setStep('start')">Start</button>
+            <button @click="setStep('completed')">Completed</button>
+            <!-- <FormRenderer
+                v-model="formInputData"
+                :class="{'col-md-9': isShowData, 'col-md-12': !isShowData}"
+                :form-configuration="formData"
+                :read-only="readOnly"
+                @changeControlPermission="asd"
+                @changeSectionPermission="asd"
+                id="configurable"
+                :current-step="currentStep"
+                :cloudApiTokens="token"
+                :customerFiles="files"
+            /> -->
 
             <FormRenderer
                 v-model="formInputData"
                 :class="{'col-md-9': isShowData, 'col-md-12': !isShowData}"
                 :form-configuration="formData"
                 :read-only="readOnly"
+                @changeControlPermission="asd"
+                @changeSectionPermission="asd"
+                id="renderable"
+                :current-step="currentStep"
+                :cloudApiTokens="token"
+                :customerFiles="files"
             />
+            <!-- <FormRenderer
+                v-model="formInputData"
+                :class="{'col-md-9': isShowData, 'col-md-12': !isShowData}"
+                :form-configuration="formData"
+                :read-only="readOnly"
+            /> -->
 
             <div class="p-0" :class="{'col-md-3': isShowData, 'd-none': !isShowData}">
                 <h4>Form Input Data</h4>
@@ -76,12 +102,45 @@
             formInputData: null,
             isShowData: false,
             readOnly: false,
+            currentStep: "start",
+            token:[
+                {
+                    "accountId": "58127aa2-6ae6-4dc9-b963-7ddc4dc93a43",
+                    "cloudType": "google-drive"
+                }
+            ],
+            files:[
+                {
+                    "storage_type": "google-drive",
+                    "is_deleted": false,
+                    "mime_type": "application/pdf",
+                    "file_name": "BulkMMS Servisi Kullanım Kılavuzu_IYS.pdf",
+                    "_id": {
+                        "$oid": "63591c307763c22bf606f978"
+                    },
+                    "file_size": 786960,
+                    "cid": {
+                        "$oid": "5fdc7256e9a82a59c399c88a"
+                    },
+                    "cloud_api_token": {
+                        "accountId": "58127aa2-6ae6-4dc9-b963-7ddc4dc93a43",
+                        "fileName": "BulkMMS Servisi Kullanım Kılavuzu_IYS.pdf",
+                        "fileId": "1aiRe03kTD3L23H787_eVrAN08_-JWCu9auVq-0oYvyVWFybymw"
+                    }
+                }
+            ]
         }),
         methods: {
             getData() {
                 console.log(JSON.stringify(this.formData))
             },
-
+            asd(a){
+                // console.log(this.formData);
+                // console.log("çalıştı");
+            },
+            setStep(step){
+                this.currentStep = step
+            },
             createBlank() {
                 this.formData = Object.assign({})
             },

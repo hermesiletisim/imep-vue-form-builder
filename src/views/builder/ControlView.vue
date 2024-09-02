@@ -1,13 +1,14 @@
 <template>
-    <div :class="[control.containerClass, 'control-view-wrapper', control.additionalContainerClass]">
+    <div :class="[tempControl.containerClass, 'control-view-wrapper', tempControl.additionalContainerClass]">
 
         <div class="control-view" :class="{'active': isActive}">
             <!-- render the label -->
-            <ControlLabel v-show="control.isShowLabel" :control="control" />
+            <ControlLabel v-show="tempControl.isShowLabel" :control="tempControl" />
 
             <!-- render the exact field -->
             <component :is="controlComponent"
-                       :control="control"
+                       :control="tempControl"
+                       :sortedSections="sortedSections"
             />
 
         </div>
@@ -17,6 +18,7 @@
             @delete="deleteControl"
             @config="openConfiguration"
             :permissions="permissions"
+            :sortedSections="sortedSections"
         />
     </div>
 </template>
@@ -43,11 +45,13 @@
                 type: String,
                 required: true,
             },
-            permissions: Object
+            permissions: Object,
+            sortedSections: Array
         },
 
         data: () => ({
-            isActive: false
+            isActive: false,
+            tempControl: {}
         }),
 
         methods: {
@@ -56,10 +60,13 @@
              */
             deleteControl() {
                 // EMIT to FormBuilder to let it delete the control for us
+                
+                this.control = this.tempControl
+
                 this.$formEvent.$emit(
                     EVENT_CONSTANTS.BUILDER.CONTROL.DELETE,
                     this.parentId,
-                    this.control.uniqueId
+                    this.tempControl.uniqueId
                 )
             },
 
@@ -72,7 +79,6 @@
                 if (this.isActive) {
                     return
                 }
-
                 this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, this.control.uniqueId)
             },
 
@@ -122,11 +128,14 @@
              * This accessor will get the component object to let us inject the right control
              */
             controlComponent() {
+                if(this.control == undefined){
+                    this.control = this.tempControl
+                }
                 // validate input
                 if (!CONTROLS[this.control.type] || !CONTROLS[this.control.type].fieldComponent) {
                     throw new TypeError(`Control Type Mapping failed => Can't be rendered. Reason: Your control type ${this.control.type} doesn't have 'fieldComponent' property`)
                 }
-
+                
                 return CONTROLS[this.control.type].fieldComponent
             }
         },
@@ -137,6 +146,8 @@
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE, this.saveConfiguration)
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.closedConfiguration)
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, this.openedConfiguration)
+            
+            this.tempControl = this.control
         },
     }
 </script>

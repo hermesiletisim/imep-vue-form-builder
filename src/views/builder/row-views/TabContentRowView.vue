@@ -28,7 +28,7 @@
             />
 
             <p v-if="!hasControls">
-                Droppable Zone / Controls will be showed here...
+                {{$ml.get("DROPPABLE_ZONE")}}
             </p>
         </draggable>
 

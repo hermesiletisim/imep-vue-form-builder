@@ -6,6 +6,7 @@
            :name="control.name"
            :placeholder="control.placeholderText"
            @input="convertToNumber($event.target.value)"
+           :disabled="isReadOnly"
     />
 </template>
 
@@ -21,7 +22,8 @@
     export default {
         name: "NumberControl",
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
-
+        props: ['isReadOnly'],
+        
         data: () => ({
             number: 0,
             stopDefaultValueAssign: true,

@@ -2,7 +2,7 @@
     <div>
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Is Real Number (Float/Double)
+                {{$ml.get("IS_REAL_NUMBER")}}
                 <input type="checkbox" v-model="control.isReal">
             </label>
         </div>

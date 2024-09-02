@@ -15,11 +15,12 @@
                 :disabled="!permissions.canReOrderingControl"
         >
 
-            <ControlView v-for="controlId in section.controls"
+            <ControlView v-for="controlId in uniqueArr"
                          :key="controlId"
                          :control="controls[controlId]"
                          :parent-id="section.uniqueId"
                          :permissions="permissions"
+                         :sortedSections="sortedSections"
             />
 
             <p v-if="!hasControl">
@@ -31,6 +32,7 @@
         <AddControlControl
             v-if="permissions.canAddControl"
             :section="section"
+            :sortedSections="sortedSections"
         />
     </div>
 </template>
@@ -44,13 +46,25 @@
      * @property {Object} controls ControlId - ControlData
      * @property {Array} section.rows
      * @property {Array} section.controls
+     * @property {Array} sortedSections
      */
     export default {
         name: "NormalSectionView",
         mixins: [SECTION_VIEW_MIXINS],
         data: () => ({
-
+            uniqueArr : []
         }),
-
+        mounted() {
+            this.uniqueArr = this.section.controls
+        },
+        watch:{
+            "section.controls":{
+                handler(value){
+                    let unique = [...new Set(this.section.controls)];
+                    this.uniqueArr = unique
+                },
+                deep: true
+            }
+        }
     }
 </script>

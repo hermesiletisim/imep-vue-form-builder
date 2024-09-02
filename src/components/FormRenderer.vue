@@ -18,6 +18,7 @@
             <!-- sections of the form -->
             <SectionContainer
                 v-for="(sectionData) in sortedSections"
+                :id="sectionData.uniqueId"
                 :section="sectionData"
                 :rows="formData.rows"
                 :controls="formData.controls"
@@ -25,6 +26,11 @@
                 :value-container="valueContainer"
                 :validation-errors="validationErrors"
                 :read-only="readOnly"
+                :current-step="currentStep"
+                @changeControlPermission="changeControlPermission"
+                @changeSectionPermission="changeSectionPermission"
+                :cloudApiTokens="[]"
+                :customerFiles="[]"
             />
         </form>
         <template v-else>
@@ -38,6 +44,7 @@
             <!-- sections of the form -->
             <SectionContainer
                 v-for="(sectionData) in sortedSections"
+                :id="sectionData.uniqueId"
                 :section="sectionData"
                 :rows="formData.rows"
                 :controls="formData.controls"
@@ -45,6 +52,11 @@
                 :value-container="valueContainer"
                 :validation-errors="validationErrors"
                 :read-only="readOnly"
+                :current-step="currentStep"
+                @changeControlPermission="changeControlPermission"
+                @changeSectionPermission="changeSectionPermission"
+                :cloudApiTokens="cloudApiTokens"
+                :customerFiles="customerFiles"
             />
 
         </template>
@@ -62,5 +74,35 @@
         data: () => ({
             formData: null
         }),
+
+        created() {
+            this.$root.$refs.FormRenderer = this
+        },
+
+        methods: {
+            changeControlPermission(id, step, config) {
+                let obj = {
+                    id: id,
+                    step: step,
+                    config: config
+                }
+                this.$emit("changeControlPermission",obj)
+            },
+            changeSectionPermission(id, step, config) {
+                let obj = {
+                    id: id,
+                    step: step,
+                    config: config
+                }
+                // console.log(this.formData);
+                this.$emit("changeSectionPermission",obj)
+            },
+            submitFile(file) {
+                this.$emit("submitFile",file)
+            },
+            deleteFile(id) {
+                this.$emit("deleteFile",id)
+            }
+        }
     }
 </script>

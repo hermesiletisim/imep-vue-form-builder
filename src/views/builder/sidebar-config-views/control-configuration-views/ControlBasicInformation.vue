@@ -1,39 +1,39 @@
 <template>
     <SidebarToggleableContainer headline="Basic Detail">
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Unique ID</label>
+            <label>{{$ml.get("UNIQUE_ID")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" :value="control.uniqueId" readonly>
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
-            <label>Name (Must be unique)</label>
+        <!-- <div :class="styles.FORM.FORM_GROUP">
+            <label>{{$ml.get("UNIQUE_NAME")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.name">
-        </div>
+        </div> -->
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Label</label>
+            <label>{{$ml.get("LABEL")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.label">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Sub-label</label>
+            <label>{{$ml.get("SUB_LABEL")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.subLabel">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Show Label?
+                {{$ml.get("SHOW_LABEL")}}
                 <input type="checkbox" v-model="control.isShowLabel">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Field Placeholder (Optional)</label>
+            <label>{{$ml.get("FIELD_PLACEHOLDER")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.placeholderText">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Default Value (Optional)</label>
+            <label>{{$ml.get("DEFAULT_VALUE")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.defaultValue">
         </div>
 

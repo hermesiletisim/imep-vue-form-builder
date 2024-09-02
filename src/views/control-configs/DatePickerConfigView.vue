@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Data Return Type</label>
+            <label>{{$ml.get("DATA_RETURN_TYPE")}}</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.returnType">
 
@@ -16,12 +16,12 @@
 
         <!--- Only show this configuration if return Type is Format --->
         <div :class="styles.FORM.FORM_GROUP" v-show="control.returnType === listReturnTypes.format.val">
-            <label>Date Format</label>
+            <label>{{$ml.get("DATE_FORMAT")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.format" />
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Start Date of the Week</label>
+            <label>{{$ml.get("START_DATE_OF_THE_WEEK")}}</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.firstDay">
 
@@ -36,25 +36,25 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Minimum Date
+                {{$ml.get("MINIMUM_DATE")}}
                 <IconTooltip icon="informationOutline" text="Follow this format: YYYY-MM-DD. Empty for none." />
             </label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.minDate" />
-            <small>Minimum Date can be selected in the Calendar</small>
+            <small>{{$ml.get("MINIMUM_DATE_INFO")}}</small>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Maximum Date
+                {{$ml.get("MAXIMUM_DATE")}}
                 <IconTooltip icon="informationOutline" text="Follow this format: YYYY-MM-DD. Empty for none." />
             </label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.maxDate"  />
-            <small>Maximum Date can be selected in the Calendar</small>
+            <small>{{$ml.get("MAXIMUM_DATE_INFO")}}</small>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Enable Date-Range?
+                {{$ml.get("ENABLE_DATE_RANGE")}}
 
                 <!--- Because singleModel == true => single date picker --->
                 <input type="checkbox"
@@ -77,15 +77,15 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Number of Months</label>
+            <label>{{$ml.get("NUMBER_OF_MONTHS")}}</label>
             <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.numberOfMonths" />
-            <small>Number of Months will be shown up</small>
+            <small>{{$ml.get("NUMBER_OF_MONTHS_DESC")}}</small>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Number of Columns</label>
+            <label>{{$ml.get("NUMBER_OF_COLUMNS")}}</label>
             <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.numberOfColumns" />
-            <small>Number of Columns will be shown up</small>
+            <small>{{$ml.get("NUMBER_OF_COLUMNS_DESC")}}</small>
         </div>
     </div>
 </template>

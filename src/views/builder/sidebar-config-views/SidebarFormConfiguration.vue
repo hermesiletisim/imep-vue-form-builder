@@ -1,16 +1,16 @@
 <template>
     <div class="sidebar-form-configuration">
-        <h5>Main Form Configuration</h5>
+        <h5>{{$ml.get('MAIN_FORM_CONFIGURATION')}}</h5>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Form Headline</label>
+            <label>{{$ml.get('FORM_HEADLINE')}}</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="formConfiguration.headline">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Form Sub-Headline</label>
+            <label>{{$ml.get('FORM_SUB_HEADLINE')}}</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="formConfiguration.subHeadline">
@@ -18,14 +18,14 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Show Form Headline?
+                {{$ml.get('SHOW_FORM_HEADLINE')}}
                 <input type="checkbox" v-model="formConfiguration.isShowHeadline">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Wrapper &#x3C;form&#x3E; outside of the Form?
+                {{$ml.get('WRAPPER_FORM_OUTSIDE_OF_THE_FORM')}}
                 <input type="checkbox" v-model="formConfiguration.renderFormTag">
             </label>
         </div>
@@ -50,7 +50,7 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Enable Server-side Validation?
+                {{$ml.get('ENABLE_SERVER_SIDE_VALIDATION')}}
                 <input type="checkbox" v-model="formConfiguration.enableServerSideValidation">
             </label>
         </div>
@@ -66,10 +66,10 @@
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
-                Save
+                {{$ml.get('SAVE')}}
             </button>
             <button :class="styles.BUTTON.INFO" @click="save(true)">
-                Save & Close
+                {{$ml.get('SAVE_CLOSE')}}
             </button>
         </div>
     </div>

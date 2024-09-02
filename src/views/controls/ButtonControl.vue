@@ -3,7 +3,7 @@
             :class="buttonClasses"
             :name="control.name"
             :type="control.buttonType || 'button'"
-            :disabled="isValidationRunning"
+            :disabled="isReadOnly"
 
             @click="clickedHandle"
     >
@@ -33,6 +33,7 @@
     export default {
         name: "ButtonControl",
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
+        props: ['isReadOnly'],
         data: () => ({
             isValidationRunning: false,
         }),

@@ -1,12 +1,11 @@
 {
-  "name": "v-form-builder",
+  "name": "imep-vue-form-builder",
   "version": "2.1.1",
   "private": false,
   "description": "Vue Form Builder PRO MAX built from top of Vue. Super dynamic and flexible including Drag and Drop feature.",
   "author": {
-    "email": "me@sethphat.com",
-    "name": "Seth Chen",
-    "url": "https://sethphat.dev"
+    "email": "guney.kaya@hermesiletisim.com",
+    "name": "Güney Kaya"
   },
   "scripts": {
     "serve": "cross-env NODE_ENV=development vue-cli-service serve --port 9999",
@@ -16,15 +15,26 @@
   },
   "main": "./dist/v-form-builder.umd.min.js",
   "dependencies": {
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.2",
+    "bootstrap-vue": "^2.22.0",
     "core-js": "^2.6.5",
     "dayjs": "^1.8.28",
     "deep-equal": "^2.0.3",
+    "jquery": "^3.6.1",
     "litepicker": "^1.4.6",
+    "moment": "^2.29.4",
     "vue": "^2.6.10",
     "vue-class-component": "^7.2.3",
+    "vue-excel-editor": "^1.5.19",
+    "vue-moment": "^4.1.0",
+    "vue-multilanguage": "^4.0.18",
+    "vue-multiselect": "^2.1.6",
     "vue-property-decorator": "^8.4.2",
+    "vue-select": "^3.20.0",
     "vue-upload-component": "^2.8.22",
-    "vuedraggable": "^2.23.2"
+    "vuedraggable": "^2.23.2",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.3",

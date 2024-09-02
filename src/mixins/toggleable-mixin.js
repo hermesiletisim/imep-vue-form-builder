@@ -10,7 +10,7 @@ const TOGGLEABLE_MIXIN = {
 
     computed: {
         iconColor: () => '#000',
-        iconSize: () => '32px',
+        iconSize: () => '24px',
 
         iconClose() {
             return this.$form.getIcon('chevronUp', this.iconSize, this.iconSize, this.iconColor)

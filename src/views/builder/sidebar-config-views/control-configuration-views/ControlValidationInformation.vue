@@ -2,7 +2,7 @@
     <SidebarToggleableContainer headline="Validation">
 
         <label>
-            Validation Rules
+            {{$ml.get("VALIDATION_RULES")}}
             <span class="pointer"
                   title="Click this to add a new rule"
                   @click="addNewRule"
@@ -23,7 +23,7 @@
             </div>
 
             <div :class="[styles.FORM.FORM_GROUP]">
-                <label>Validation Rule</label>
+                <label>{{$ml.get("VALIDATION_RULE")}}</label>
                 <select :class="styles.FORM.FORM_CONTROL"
                         @change="updateDefaultErrorMessage(addedRule)"
                         v-model="addedRule.ruleType">
@@ -56,7 +56,7 @@
 
             <div :class="styles.FORM.FORM_GROUP">
 
-                <label>Default Error Message</label>
+                <label>{{$ml.get("DEFAULT_ERROR_MESSAGE")}}</label>
                 <input type="text"
                        :class="styles.FORM.FORM_CONTROL"
                        v-model="addedRule.errorMessage">

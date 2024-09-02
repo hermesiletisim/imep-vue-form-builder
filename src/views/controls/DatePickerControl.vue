@@ -5,16 +5,19 @@
                    :id="control.uniqueId"
                    :name="control.name || control.uniqueId"
                    :placeholder="control.placeholderText"
-                   :class="styles.FORM.FORM_CONTROL"
+                   :class="[styles.FORM.FORM_CONTROL, isReadOnly ?  'disable' : '']"
                    autocomplete="off"
+                   :disabled="isReadOnly"
+                   
             />
         </template>
         <template v-else>
             <input type="text"
                    :id="control.uniqueId"
                    :placeholder="control.placeholderText"
-                   :class="styles.FORM.FORM_CONTROL"
+                   :class="[styles.FORM.FORM_CONTROL, isReadOnly ?  'disable' : '']"
                    autocomplete="off"
+                   :disabled="isReadOnly"
             />
 
             <!--
@@ -26,10 +29,12 @@
             <input type="hidden"
                    :name="startDateFieldName"
                    :value="hasStartDate ? value.startDate : ''"
+                   :disabled="isReadOnly"
             >
             <input type="hidden"
                    :name="endDateFieldName"
                    :value="hasEndDate ? value.endDate : ''"
+                   :disabled="isReadOnly"
             >
         </template>
     </div>
@@ -44,6 +49,7 @@
     export default {
         name: "DatePickerControl",
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
+        props: ['isReadOnly'],
         data: () => ({
             datepicker: null,
             currentValue: null,
@@ -179,12 +185,13 @@
                  */
                 onSelect: this.getValue
             })
+
         },
 
         beforeDestroy() {
             this.datepicker.destroy()
         },
-
+        
         computed: {
             startDateFieldName() {
                 return (this.control.name || this.control.uniqueId) + '[startDate]'
@@ -205,5 +212,7 @@
 </script>
 
 <style scoped>
-
+    input.disable {
+        pointer-events: none;
+    }
 </style>

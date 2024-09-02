@@ -4,15 +4,14 @@
             :name="control.name || control.uniqueId"
             @input="updateValue($event.target.value)"
             :multiple="this.control.multiple"
+            :disabled="isReadOnly"
     >
-        <!-- placeholder -->
         <option disabled
                 selected
                 v-text="control.placeholderText"
                 v-if="control.placeholderText"
         ></option>
 
-        <!-- list rendering -->
         <option v-for="optionObj in listOptions"
                 :key="optionObj.value"
                 :value="optionObj.value"
@@ -37,6 +36,8 @@
     export default {
         name: "DropdownControl",
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
+        props: ['isReadOnly'],
+
         data: () => ({
             listOptions: [],
 

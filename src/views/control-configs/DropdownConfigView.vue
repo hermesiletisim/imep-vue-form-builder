@@ -2,13 +2,13 @@
     <div>
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Multiple Selection?
+                {{$ml.get("MULTIPLE_SELECTION")}}
                 <input type="checkbox" v-model="control.multiple">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Option-Data-List Mode</label>
+            <label>{{$ml.get("OPTION_DATA_LIST_MODE")}}</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.dataMode">
 
@@ -37,7 +37,7 @@
 
             <div :class="styles.FORM.FORM_GROUP">
                 <label>
-                    Value Key of your Object
+                    {{$ml.get("VALUE_KEY_OF_YOUR_OBJECT")}}
                     <icon-tooltip icon="informationOutline"
                                   text="[{'value': '',...}] => value" />
                 </label>
@@ -49,7 +49,7 @@
 
             <div :class="styles.FORM.FORM_GROUP">
                 <label>
-                    Text Key of your Object
+                    {{$ml.get("TEXT_KEY_OF_YOUR_OBJECT")}}
                     <icon-tooltip icon="informationOutline"
                                   text="[{'text': '',...}] => text" />
                 </label>
@@ -65,7 +65,7 @@
              v-show="this.control.dataMode === listDataModes.list.val">
 
             <label>
-                List Options
+                {{$ml.get("LIST_OPTIONS")}}
                 <span class="pointer"
                       @click="addListItem"
                       v-html="$form.getIcon('addOutline', '16px', '16px', 'green')">
@@ -83,14 +83,14 @@
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>Item Value</label>
+                    <label>{{$ml.get("ITEM_VALUE")}}</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
                            placeholder="Radio-Value"
                            v-model="listItem.value">
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>Label Text</label>
+                    <label>{{$ml.get("LABEL_TEXT")}}</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
                            placeholder="Label text"
                            v-model="listItem.text">

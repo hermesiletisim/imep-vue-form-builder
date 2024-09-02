@@ -8,6 +8,7 @@
             :name="control.name"
             :placeholder="control.placeholderText"
             @input="updateValue($event.target.value)"
+            :disabled="isReadOnly"
     ></textarea>
 </template>
 
@@ -20,6 +21,7 @@
      */
     export default {
         name: "TextControl",
-        mixins: [CONTROL_FIELD_EXTEND_MIXIN]
+        mixins: [CONTROL_FIELD_EXTEND_MIXIN],
+        props: ['isReadOnly'],
     }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Button Type (Type Attribute)</label>
+            <label>{{$ml.get("BUTTON_TYPE")}}</label>
             <select type="text"
                     :class="styles.FORM.FORM_CONTROL"
                     v-model="control.buttonType"
@@ -15,7 +15,7 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Button Class (Type Attribute)</label>
+            <label>{{$ml.get("BUTTON_CLASS")}}</label>
             <select type="text"
                     :class="styles.FORM.FORM_CONTROL"
                     v-model="control.buttonClass"
@@ -30,14 +30,14 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Run validation before emitting?
+                {{$ml.get("RUN_VALIDATION_BEFORE_EMITTING")}}
                 <input type="checkbox" v-model="control.isRunValidation">
             </label>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Emitting Code
+                {{$ml.get("EMITTING_CODE")}}
                 <IconTooltip icon="informationOutline"
                              text="V-Form will $emit an Event with <strong>YOUR CODE</strong>" />
             </label>
@@ -48,7 +48,7 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Emitting Value
+                {{$ml.get("EMITTING_VALUE")}}
                 <IconTooltip icon="informationOutline"
                              text="Specific Data-String when V-Form performs invoke $emit" />
             </label>

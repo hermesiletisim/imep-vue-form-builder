@@ -9,6 +9,7 @@ import App from './App.vue'
 // @ts-ignore
 import {VueFormBuilderPlugin} from "@/index";
 import {IRegisterProperties} from "@/interfaces/register-properties.interface";
+import './language/ml'
 
 Vue.config.productionTip = false
 

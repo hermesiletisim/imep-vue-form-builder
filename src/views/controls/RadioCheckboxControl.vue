@@ -11,6 +11,7 @@
                        :name="inputName"
                        :value="listItem.value"
                        v-model="valueContainer[controlName]"
+                       :disabled="isReadOnly"
                 >
 
                 {{listItem.text}}
@@ -35,6 +36,7 @@
                                :name="inputName"
                                :value="listItem.value"
                                v-model="valueContainer[controlName]"
+                               :disabled="isReadOnly"
                         >
 
                         {{listItem.text}}
@@ -62,6 +64,11 @@
             valueContainer: {
                 type: Object,
                 default: () => ({})
+            },
+            sortedSections: Array,
+            isReadOnly: {
+                type: Boolean,
+                default: false
             }
         },
 

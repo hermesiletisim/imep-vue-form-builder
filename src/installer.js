@@ -5,6 +5,12 @@ import {CONTROLS} from "@/configs/controls";
 import {STYLES} from "@/configs/styles";
 import {VALIDATION_RULES} from "@/configs/validation";
 import {IRegisterProperties} from "@/interfaces/register-properties.interface.ts";
+import Vue from 'vue'
+
+import vSelect from "vue-select"
+import "vue-select/dist/vue-select.css";
+Vue.component("v-select", vSelect)
+
 
 const VueFormBuilderInstaller = function(
     Vue,

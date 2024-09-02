@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>For-Attribute to Control?</label>
+            <label>For-Attribute to Control?{{$ml.get("FOR_ATTRIBUTE_TO_CONTROL")}}</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     @input="selectedFor"
             >
