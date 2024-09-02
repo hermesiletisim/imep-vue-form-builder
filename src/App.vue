@@ -4,7 +4,7 @@
         <p class="text-center">Presented by <strong>Seth (Sandaru) Phat</strong></p>
         <h4 class="text-center mb-3">What you <strong>BUILD</strong> is what you <strong>GOT</strong>.</h4>
 
-        <div class="col-md-12">
+        <div class="col-md-12"> 
             <button class="btn btn-info mr-2" @click="getData">Get JSON Form-Data (Console / Builder)</button>
             <button class="btn btn-info mr-2" @click="setData">Set JSON Form-Data (Basic Configuration / Builder)</button>
             <button class="btn btn-info mr-2" @click="createBlank">Create Blank Form (Builder)</button>
@@ -55,6 +55,7 @@
                 :customerFiles="files"
             /> -->
 
+            
             <FormRenderer
                 v-model="formInputData"
                 :class="{'col-md-9': isShowData, 'col-md-12': !isShowData}"
