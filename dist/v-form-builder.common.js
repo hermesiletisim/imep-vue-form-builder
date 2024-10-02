@@ -49648,16 +49648,138 @@ var FileUploaderControl_component = Object(componentNormalizer["a" /* default */
 )
 
 /* harmony default export */ var FileUploaderControl = (FileUploaderControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a53691cc-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/UserControl.vue?vue&type=template&id=8e3f1d9a&scoped=true&
-var UserControlvue_type_template_id_8e3f1d9a_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"person-input"},[((_vm.control.typeAttribute)==='checkbox')?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullName),expression:"fullName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":"checkbox"},domProps:{"value":_vm.value,"checked":Array.isArray(_vm.fullName)?_vm._i(_vm.fullName,_vm.value)>-1:(_vm.fullName)},on:{"keyup":function($event){return _vm.getContacts($event.target.value)},"change":function($event){var $$a=_vm.fullName,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=_vm.value,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.fullName=$$a.concat([$$v]))}else{$$i>-1&&(_vm.fullName=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.fullName=$$c}}}}):((_vm.control.typeAttribute)==='radio')?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullName),expression:"fullName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":"radio"},domProps:{"value":_vm.value,"checked":_vm._q(_vm.fullName,_vm.value)},on:{"keyup":function($event){return _vm.getContacts($event.target.value)},"change":function($event){_vm.fullName=_vm.value}}}):_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullName),expression:"fullName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":_vm.control.typeAttribute},domProps:{"value":_vm.value,"value":(_vm.fullName)},on:{"keyup":function($event){return _vm.getContacts($event.target.value)},"input":function($event){if($event.target.composing){ return; }_vm.fullName=$event.target.value}}}),_c('ul',{directives:[{name:"show",rawName:"v-show",value:(_vm.listOptions.length>0),expression:"listOptions.length>0"}],staticClass:"new-dropdown border-0 p-0 autocomplete-results"},[(_vm.listOptions.length>0)?_c('div',_vm._l((_vm.listOptions),function(result,i){return _c('li',{key:i,staticClass:"autocomplete-result",on:{"click":function($event){return _vm.setResult(result)}}},[_vm._v(_vm._s(result.n)+" "+_vm._s(result.sn))])}),0):_vm._e(),(_vm.listOptions.length<1)?_c('div',[_c('li',{staticClass:"autocomplete-result"},[_vm._v("NOT FOUND")])]):_vm._e()])])}
-var UserControlvue_type_template_id_8e3f1d9a_scoped_true_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a53691cc-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/UserControl.vue?vue&type=template&id=d24e6b30&scoped=true&
+var UserControlvue_type_template_id_d24e6b30_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"person-input"},[((_vm.control.typeAttribute)==='checkbox')?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullName),expression:"fullName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":"checkbox"},domProps:{"value":_vm.value,"checked":Array.isArray(_vm.fullName)?_vm._i(_vm.fullName,_vm.value)>-1:(_vm.fullName)},on:{"keyup":function($event){return _vm.getContacts($event.target.value)},"change":function($event){var $$a=_vm.fullName,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=_vm.value,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.fullName=$$a.concat([$$v]))}else{$$i>-1&&(_vm.fullName=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.fullName=$$c}}}}):((_vm.control.typeAttribute)==='radio')?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullName),expression:"fullName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":"radio"},domProps:{"value":_vm.value,"checked":_vm._q(_vm.fullName,_vm.value)},on:{"keyup":function($event){return _vm.getContacts($event.target.value)},"change":function($event){_vm.fullName=_vm.value}}}):_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullName),expression:"fullName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":_vm.control.typeAttribute},domProps:{"value":_vm.value,"value":(_vm.fullName)},on:{"keyup":function($event){return _vm.getContacts($event.target.value)},"input":function($event){if($event.target.composing){ return; }_vm.fullName=$event.target.value}}})])}
+var UserControlvue_type_template_id_d24e6b30_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/controls/UserControl.vue?vue&type=template&id=8e3f1d9a&scoped=true&
+// CONCATENATED MODULE: ./src/views/controls/UserControl.vue?vue&type=template&id=d24e6b30&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/axios/index.js
 var axios = __webpack_require__("bc3a");
 var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/UserControl.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/**
+ * Dropdown Control.
+ * I've been thinking all day, all night, should I use some library (select2, choices.js,...)
+ * But, after some researched via https://bundlephobia.com/ , I decided to use Native Select instead
+ * In order to save some KBs, the bundle is kinda bigger now @@
+ * @property {ListItem[]} listOptions
+ */
+
+/* harmony default export */ var UserControlvue_type_script_lang_js_ = ({
+  name: "UserControl",
+  mixins: [control_field_extend_mixin["a" /* CONTROL_FIELD_EXTEND_MIXIN */]],
+  props: ['isReadOnly'],
+  data: function data() {
+    return {
+      listOptions: [],
+      fullName: ""
+    };
+  },
+  watch: {
+    fullName: function fullName() {
+      if (this.fullName === "") {
+        this.listOptions = [];
+      }
+    }
+  },
+  methods: {
+    getContacts: function getContacts(keyWord) {
+      console.log("logggggggggggggggggg");
+      console.log(keyWord); // this.fullName = keyWord
+      // var dataObj={
+      //     search:keyWord
+      // }
+
+      console.log("quickFilterContacts"); // axios({
+      //     method:'POST',
+      //     url:'/quickFilterContacts',
+      //     baseURL: "https://new.iletisimmakinesi.com/api",
+      //     data: dataObj,
+      //     withCredentials:true
+      // }).then((res)=>{
+      //     return res
+      // }).then((res)=>{
+      //     if(!res.data.status){
+      //     }
+      //     if(res.data.status.code==0){
+      //         this.listOptions = res.data.content.contacts
+      //     }
+      // })
+    } // setResult(res){
+    //     const result = this.listOptions.filter(item => item._id.$oid == res._id.$oid)
+    //     if(result[0].sn !== undefined){
+    //         this.fullName = result[0].n + " " + result[0].sn
+    //     }
+    //     else{
+    //         this.fullName = result[0].n
+    //     }
+    //     this.listOptions = []
+    //     this.updateValue(res._id.$oid)
+    // },
+
+  }
+});
+// CONCATENATED MODULE: ./src/views/controls/UserControl.vue?vue&type=script&lang=js&
+ /* harmony default export */ var controls_UserControlvue_type_script_lang_js_ = (UserControlvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/views/controls/UserControl.vue
+
+
+
+
+
+/* normalize component */
+
+var UserControl_component = Object(componentNormalizer["a" /* default */])(
+  controls_UserControlvue_type_script_lang_js_,
+  UserControlvue_type_template_id_d24e6b30_scoped_true_render,
+  UserControlvue_type_template_id_d24e6b30_scoped_true_staticRenderFns,
+  false,
+  null,
+  "d24e6b30",
+  null
+  
+)
+
+/* harmony default export */ var UserControl = (UserControl_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a53691cc-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/OrganizationControl.vue?vue&type=template&id=155521a2&scoped=true&
+var OrganizationControlvue_type_template_id_155521a2_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"organization-input"},[((_vm.control.typeAttribute)==='checkbox')?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullOrgName),expression:"fullOrgName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":"checkbox"},domProps:{"value":_vm.value,"checked":Array.isArray(_vm.fullOrgName)?_vm._i(_vm.fullOrgName,_vm.value)>-1:(_vm.fullOrgName)},on:{"keyup":function($event){return _vm.getOrganizations($event.target.value)},"change":function($event){var $$a=_vm.fullOrgName,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=_vm.value,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.fullOrgName=$$a.concat([$$v]))}else{$$i>-1&&(_vm.fullOrgName=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.fullOrgName=$$c}}}}):((_vm.control.typeAttribute)==='radio')?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullOrgName),expression:"fullOrgName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":"radio"},domProps:{"value":_vm.value,"checked":_vm._q(_vm.fullOrgName,_vm.value)},on:{"keyup":function($event){return _vm.getOrganizations($event.target.value)},"change":function($event){_vm.fullOrgName=_vm.value}}}):_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullOrgName),expression:"fullOrgName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":_vm.control.typeAttribute},domProps:{"value":_vm.value,"value":(_vm.fullOrgName)},on:{"keyup":function($event){return _vm.getOrganizations($event.target.value)},"input":function($event){if($event.target.composing){ return; }_vm.fullOrgName=$event.target.value}}}),_c('ul',{directives:[{name:"show",rawName:"v-show",value:(_vm.listOptions.length>0),expression:"listOptions.length>0"}],staticClass:"new-dropdown border-0 p-0 autocomplete-results"},[(_vm.listOptions.length>0)?_c('div',_vm._l((_vm.listOptions),function(result,i){return _c('li',{key:i,staticClass:"autocomplete-result",on:{"click":function($event){return _vm.setResult(result)}}},[_vm._v(_vm._s(result.name))])}),0):_vm._e(),(_vm.listOptions.length<1)?_c('div',[_c('li',{staticClass:"autocomplete-result"},[_vm._v("NOT FOUND")])]):_vm._e()])])}
+var OrganizationControlvue_type_template_id_155521a2_scoped_true_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/views/controls/OrganizationControl.vue?vue&type=template&id=155521a2&scoped=true&
 
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
@@ -51329,141 +51451,6 @@ var index = {
 
 /* harmony default export */ var vuex_esm_browser = (index);
 
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/UserControl.vue?vue&type=script&lang=js&
-
-
-
-
-
-
-function UserControlvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function UserControlvue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { UserControlvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { UserControlvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/**
- * Dropdown Control.
- * I've been thinking all day, all night, should I use some library (select2, choices.js,...)
- * But, after some researched via https://bundlephobia.com/ , I decided to use Native Select instead
- * In order to save some KBs, the bundle is kinda bigger now @@
- * @property {ListItem[]} listOptions
- */
-
-/* harmony default export */ var UserControlvue_type_script_lang_js_ = ({
-  name: "UserControl",
-  mixins: [control_field_extend_mixin["a" /* CONTROL_FIELD_EXTEND_MIXIN */]],
-  props: ['isReadOnly'],
-  data: function data() {
-    return {
-      listOptions: [],
-      fullName: ""
-    };
-  },
-  watch: {
-    fullName: function fullName() {
-      if (this.fullName === "") {
-        this.listOptions = [];
-      }
-    }
-  },
-  computed: UserControlvue_type_script_lang_js_objectSpread({}, mapState(['baseUrl'])),
-  methods: {
-    getContacts: function getContacts(keyWord) {
-      this.fullName = keyWord;
-      var dataObj = {
-        search: keyWord
-      };
-      console.log("quickFilterContacts");
-      console.log(dataObj); // axios({
-      //     method:'POST',
-      //     url:'/quickFilterContacts',
-      //     baseURL: "https://new.iletisimmakinesi.com/api",
-      //     data: dataObj,
-      //     withCredentials:true
-      // }).then((res)=>{
-      //     return res
-      // }).then((res)=>{
-      //     if(!res.data.status){
-      //     }
-      //     if(res.data.status.code==0){
-      //         this.listOptions = res.data.content.contacts
-      //     }
-      // })
-    },
-    setResult: function setResult(res) {
-      var result = this.listOptions.filter(function (item) {
-        return item._id.$oid == res._id.$oid;
-      });
-
-      if (result[0].sn !== undefined) {
-        this.fullName = result[0].n + " " + result[0].sn;
-      } else {
-        this.fullName = result[0].n;
-      }
-
-      this.listOptions = [];
-      this.updateValue(res._id.$oid);
-    }
-  }
-});
-// CONCATENATED MODULE: ./src/views/controls/UserControl.vue?vue&type=script&lang=js&
- /* harmony default export */ var controls_UserControlvue_type_script_lang_js_ = (UserControlvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/views/controls/UserControl.vue
-
-
-
-
-
-/* normalize component */
-
-var UserControl_component = Object(componentNormalizer["a" /* default */])(
-  controls_UserControlvue_type_script_lang_js_,
-  UserControlvue_type_template_id_8e3f1d9a_scoped_true_render,
-  UserControlvue_type_template_id_8e3f1d9a_scoped_true_staticRenderFns,
-  false,
-  null,
-  "8e3f1d9a",
-  null
-  
-)
-
-/* harmony default export */ var UserControl = (UserControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a53691cc-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/OrganizationControl.vue?vue&type=template&id=155521a2&scoped=true&
-var OrganizationControlvue_type_template_id_155521a2_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"organization-input"},[((_vm.control.typeAttribute)==='checkbox')?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullOrgName),expression:"fullOrgName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":"checkbox"},domProps:{"value":_vm.value,"checked":Array.isArray(_vm.fullOrgName)?_vm._i(_vm.fullOrgName,_vm.value)>-1:(_vm.fullOrgName)},on:{"keyup":function($event){return _vm.getOrganizations($event.target.value)},"change":function($event){var $$a=_vm.fullOrgName,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=_vm.value,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.fullOrgName=$$a.concat([$$v]))}else{$$i>-1&&(_vm.fullOrgName=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.fullOrgName=$$c}}}}):((_vm.control.typeAttribute)==='radio')?_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullOrgName),expression:"fullOrgName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":"radio"},domProps:{"value":_vm.value,"checked":_vm._q(_vm.fullOrgName,_vm.value)},on:{"keyup":function($event){return _vm.getOrganizations($event.target.value)},"change":function($event){_vm.fullOrgName=_vm.value}}}):_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fullOrgName),expression:"fullOrgName"}],class:_vm.controlFieldClass,attrs:{"id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"disabled":_vm.isReadOnly,"type":_vm.control.typeAttribute},domProps:{"value":_vm.value,"value":(_vm.fullOrgName)},on:{"keyup":function($event){return _vm.getOrganizations($event.target.value)},"input":function($event){if($event.target.composing){ return; }_vm.fullOrgName=$event.target.value}}}),_c('ul',{directives:[{name:"show",rawName:"v-show",value:(_vm.listOptions.length>0),expression:"listOptions.length>0"}],staticClass:"new-dropdown border-0 p-0 autocomplete-results"},[(_vm.listOptions.length>0)?_c('div',_vm._l((_vm.listOptions),function(result,i){return _c('li',{key:i,staticClass:"autocomplete-result",on:{"click":function($event){return _vm.setResult(result)}}},[_vm._v(_vm._s(result.name))])}),0):_vm._e(),(_vm.listOptions.length<1)?_c('div',[_c('li',{staticClass:"autocomplete-result"},[_vm._v("NOT FOUND")])]):_vm._e()])])}
-var OrganizationControlvue_type_template_id_155521a2_scoped_true_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/views/controls/OrganizationControl.vue?vue&type=template&id=155521a2&scoped=true&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/OrganizationControl.vue?vue&type=script&lang=js&
 

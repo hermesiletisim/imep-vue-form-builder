@@ -1,5 +1,6 @@
 <template>
     <div class="person-input">
+
         <input :id="control.uniqueId"
            :type="control.typeAttribute"
            :class="controlFieldClass"
@@ -10,14 +11,14 @@
            v-on:keyup="getContacts($event.target.value)"
            :disabled="isReadOnly"
         />
-        <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length>0'>
+        <!-- <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length>0'>
             <div v-if="listOptions.length>0">
                 <li class="autocomplete-result" v-for='(result, i) in listOptions' :key="i" @click="setResult(result)">{{result.n}} {{result.sn}}</li>
             </div>
             <div v-if="listOptions.length<1">
                 <li class="autocomplete-result" >NOT FOUND</li>
             </div>
-        </ul>
+        </ul> -->
     </div>
     
     
@@ -28,7 +29,7 @@
     import {DROPDOWN_DATA_MODES} from "@/configs/control-config-enum";
     import ListItem from "@/libraries/list-item.class";
     import axios from 'axios'
-    import {mapState} from 'vuex'
+
     
 
     /**
@@ -54,21 +55,19 @@
                 }
             }
         },
-        computed: {
-          ...mapState([
-              'baseUrl'
-            ]),
-        },
+       
+        
 
         methods: {
             getContacts(keyWord){
-                this.fullName = keyWord
+                console.log("logggggggggggggggggg")
+                console.log(keyWord)
+                // this.fullName = keyWord
                
-                var dataObj={
-                    search:keyWord
-                }
+                // var dataObj={
+                //     search:keyWord
+                // }
                     console.log("quickFilterContacts")
-                    console.log(dataObj)
                 // axios({
                 //     method:'POST',
                 //     url:'/quickFilterContacts',
@@ -87,18 +86,18 @@
                 // })
                                                  
             },
-            setResult(res){
-                const result = this.listOptions.filter(item => item._id.$oid == res._id.$oid)
+            // setResult(res){
+            //     const result = this.listOptions.filter(item => item._id.$oid == res._id.$oid)
 
-                if(result[0].sn !== undefined){
-                    this.fullName = result[0].n + " " + result[0].sn
-                }
-                else{
-                    this.fullName = result[0].n
-                }
-                this.listOptions = []
-                this.updateValue(res._id.$oid)
-            },
+            //     if(result[0].sn !== undefined){
+            //         this.fullName = result[0].n + " " + result[0].sn
+            //     }
+            //     else{
+            //         this.fullName = result[0].n
+            //     }
+            //     this.listOptions = []
+            //     this.updateValue(res._id.$oid)
+            // },
         },
 
     }
