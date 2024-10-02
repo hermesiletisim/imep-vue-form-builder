@@ -67,11 +67,11 @@
                 var dataObj={
                     search:keyWord
                 }
-                
+                    console.log("quickFilterContacts")
                 axios({
                     method:'POST',
-                    url:'/quickFilterContact',
-                    baseURL: this.baseUrl,
+                    url:'/quickFilterContacts',
+                    baseURL: "https://new.iletisimmakinesi.com/api",
                     data: dataObj,
                     withCredentials:true
                 }).then((res)=>{
