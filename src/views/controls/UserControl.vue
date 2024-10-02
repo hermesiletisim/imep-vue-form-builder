@@ -68,22 +68,23 @@
                     search:keyWord
                 }
                     console.log("quickFilterContacts")
-                axios({
-                    method:'POST',
-                    url:'/quickFilterContacts',
-                    baseURL: "https://new.iletisimmakinesi.com/api",
-                    data: dataObj,
-                    withCredentials:true
-                }).then((res)=>{
-                    return res
-                }).then((res)=>{
-                    if(!res.data.status){
+                    console.log(dataObj)
+                // axios({
+                //     method:'POST',
+                //     url:'/quickFilterContacts',
+                //     baseURL: "https://new.iletisimmakinesi.com/api",
+                //     data: dataObj,
+                //     withCredentials:true
+                // }).then((res)=>{
+                //     return res
+                // }).then((res)=>{
+                //     if(!res.data.status){
                          
-                    }
-                    if(res.data.status.code==0){
-                        this.listOptions = res.data.content.contacts
-                    }
-                })
+                //     }
+                //     if(res.data.status.code==0){
+                //         this.listOptions = res.data.content.contacts
+                //     }
+                // })
                                                  
             },
             setResult(res){
