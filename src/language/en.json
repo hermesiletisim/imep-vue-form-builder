@@ -1110,6 +1110,7 @@
     "LABEL_DESC":"Simple label text show up in your Form",
     "COMPANY_DESC":"Connect related company",
     "PERSON_DESC":"Connect related person",
+    "CONTACT_DESC":"Connect related contact",
     "DEAL_DESC":"Connect related deal",
     "BUTTON":"Button",
     "BUTTON_DESC":"Simple button for your own purpose",

@@ -164,8 +164,8 @@
      },
      
      user: {
-         name: "PERSON",
-         description: "PERSON_DESC",
+         name: "CONTACT",
+         description: "CONTACT_DESC",
  
          configData: {
              dataMode: DROPDOWN_DATA_MODES.api.val, // normal - api
@@ -185,49 +185,8 @@
          configComponent: UserConfigView,
      },
  
-     organization: {
-         name: "COMPANY",
-         description: "COMPANY_DESC",
- 
-         configData: {
-             dataMode: DROPDOWN_DATA_MODES.api.val, // normal - api
-             multiple: false, // is multiple selection
- 
-             /**
-              * @var {ListItem[]} items
-              */
-             items: [], // for normal hard-list
- 
-             apiURL: "", // for api-request - must be entered
-             apiTextKey: "text", // <option>TEXT</option>
-             apiValueKey: "value", // <option value=value>...</option>
-         },
- 
-         fieldComponent: OrganizationControl,
-         configComponent: OrganizationConfigView,
-     },
-
-     deal: {
-        name: "DEAL",
-        description: "DEAL_DESC",
-
-        configData: {
-            dataMode: DROPDOWN_DATA_MODES.api.val, // normal - api
-            multiple: false, // is multiple selection
-
-            /**
-             * @var {ListItem[]} items
-             */
-            items: [], // for normal hard-list
-
-            apiURL: "", // for api-request - must be entered
-            apiTextKey: "text", // <option>TEXT</option>
-            apiValueKey: "value", // <option value=value>...</option>
-        },
-
-        fieldComponent: DealControl,
-        configComponent: DealConfigView,
-    },
+     
+     
  
      checkbox: {
          name: "CHECKBOX_LIST",
