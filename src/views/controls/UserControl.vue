@@ -11,14 +11,14 @@
            v-on:keyup="getContacts($event.target.value)"
            :disabled="isReadOnly"
         />
-        <!-- <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length>0'>
+        <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length>0'>
             <div v-if="listOptions.length>0">
                 <li class="autocomplete-result" v-for='(result, i) in listOptions' :key="i" @click="setResult(result)">{{result.n}} {{result.sn}}</li>
             </div>
             <div v-if="listOptions.length<1">
                 <li class="autocomplete-result" >NOT FOUND</li>
             </div>
-        </ul> -->
+        </ul>
     </div>
     
     
@@ -62,42 +62,42 @@
             getContacts(keyWord){
                 console.log("logggggggggggggggggg")
                 console.log(keyWord)
-                // this.fullName = keyWord
+                this.fullName = keyWord
                
-                // var dataObj={
-                //     search:keyWord
-                // }
+                var dataObj={
+                    search:keyWord
+                }
                     console.log("quickFilterContacts")
-                // axios({
-                //     method:'POST',
-                //     url:'/quickFilterContacts',
-                //     baseURL: "https://new.iletisimmakinesi.com/api",
-                //     data: dataObj,
-                //     withCredentials:true
-                // }).then((res)=>{
-                //     return res
-                // }).then((res)=>{
-                //     if(!res.data.status){
+                axios({
+                    method:'POST',
+                    url:'/quickFilterContacts',
+                    baseURL: "https://new.iletisimmakinesi.com/api",
+                    data: dataObj,
+                    withCredentials:true
+                }).then((res)=>{
+                    return res
+                }).then((res)=>{
+                    if(!res.data.status){
                          
-                //     }
-                //     if(res.data.status.code==0){
-                //         this.listOptions = res.data.content.contacts
-                //     }
-                // })
+                    }
+                    if(res.data.status.code==0){
+                        this.listOptions = res.data.content.contacts
+                    }
+                })
                                                  
             },
-            // setResult(res){
-            //     const result = this.listOptions.filter(item => item._id.$oid == res._id.$oid)
+            setResult(res){
+                const result = this.listOptions.filter(item => item._id.$oid == res._id.$oid)
 
-            //     if(result[0].sn !== undefined){
-            //         this.fullName = result[0].n + " " + result[0].sn
-            //     }
-            //     else{
-            //         this.fullName = result[0].n
-            //     }
-            //     this.listOptions = []
-            //     this.updateValue(res._id.$oid)
-            // },
+                if(result[0].sn !== undefined){
+                    this.fullName = result[0].n + " " + result[0].sn
+                }
+                else{
+                    this.fullName = result[0].n
+                }
+                this.listOptions = []
+                this.updateValue(res._id.$oid)
+            },
         },
 
     }
