@@ -158,10 +158,6 @@ export default {
             else {
                 this.fullName = ""
             }
-
-
-            return this.fullName;
-
         }
     },
 
