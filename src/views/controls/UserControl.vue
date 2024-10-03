@@ -138,11 +138,9 @@ export default {
         },
         writeResult2(res) {
             console.log(res)
-            console.log(res==null)
-            console.log(res==undefined)
 
             let displayVal
-            if (res != null) {
+            if (res != '') {
 
                 if (res.name !== undefined) {
                     displayVal = res.name
