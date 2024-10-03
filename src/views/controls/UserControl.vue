@@ -141,32 +141,56 @@ export default {
         writeResult2(res) {
             console.log(res)
             if (res == '') {
-                reloadInput = !reloadInput
-                this.$forceUpdate();
+                setTimeout(() => {
+                    if (res.name !== undefined) {
+                        this.fullName = res.name
+                        if (res.surName !== undefined) {
+                            this.fullName += ' ' + res.surName
+                        }
+                    }
+                    else if (res.surName !== undefined) {
+                        this.fullName = res.surName
+                        if (res.name !== undefined) {
+                            this.fullName = res.name + ' ' + res.surName
+                        }
+                    }
+                    else if (res.email !== undefined) {
+                        this.fullName = res.email
+                    }
+                    else if (res.phone !== undefined) {
+                        this.fullName = res.phone
+                    }
+                    else {
+                        this.fullName = ""
+                    }
+                }, 500);
 
-            }
-
-            if (res.name !== undefined) {
-                this.fullName = res.name
-                if (res.surName !== undefined) {
-                    this.fullName += ' ' + res.surName
-                }
-            }
-            else if (res.surName !== undefined) {
-                this.fullName = res.surName
-                if (res.name !== undefined) {
-                    this.fullName = res.name + ' ' + res.surName
-                }
-            }
-            else if (res.email !== undefined) {
-                this.fullName = res.email
-            }
-            else if (res.phone !== undefined) {
-                this.fullName = res.phone
             }
             else {
-                this.fullName = ""
+                if (res.name !== undefined) {
+                    this.fullName = res.name
+                    if (res.surName !== undefined) {
+                        this.fullName += ' ' + res.surName
+                    }
+                }
+                else if (res.surName !== undefined) {
+                    this.fullName = res.surName
+                    if (res.name !== undefined) {
+                        this.fullName = res.name + ' ' + res.surName
+                    }
+                }
+                else if (res.email !== undefined) {
+                    this.fullName = res.email
+                }
+                else if (res.phone !== undefined) {
+                    this.fullName = res.phone
+                }
+                else {
+                    this.fullName = ""
+                }
             }
+
+
             return this.fullName;
 
         }
