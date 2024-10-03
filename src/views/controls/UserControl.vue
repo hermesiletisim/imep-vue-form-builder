@@ -13,7 +13,7 @@
         />
         <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length>0'>
             <div v-if="listOptions.length>0">
-                <li class="autocomplete-result" v-for='(result, i) in listOptions' :key="i" @click="setResult(result)">{{result.n}} {{result.sn}}</li>
+                <li class="autocomplete-result" v-for='(result, i) in listOptions' :key="i" @click="setResult(result)">{{writeResult(result)}}</li>
             </div>
             <div v-if="listOptions.length<1">
                 <li class="autocomplete-result" >NOT FOUND</li>
@@ -112,6 +112,32 @@
                 this.listOptions = []
                 this.updateValue(res._id.$oid)
             },
+            writeResult(res){
+                console.log(res)
+                const result = this.listOptions.filter(item => item._id.$oid == res._id.$oid)                
+                let displayVal
+                if(result[0].name !== undefined){
+                    displayVal = result[0].name
+                    if(result[0].surName !== undefined)
+                        displayVal.concat(' ', result[0].surName)
+                }
+                else if(result[0].surName !== undefined){
+                    displayVal = result[0].surName
+                    if(result[0].name !== undefined)
+                        displayVal = result[0].name.concat(' ', result[0].surName)
+                }
+                else if(result[0].email !== undefined){
+                    displayVal = result[0].email
+                }
+                else if(result[0].phone !== undefined){
+                    displayVal = result[0].phone
+                }
+                else{
+                    displayVal = ""
+                }
+                return displayVal;
+
+            }
         },
 
     }
