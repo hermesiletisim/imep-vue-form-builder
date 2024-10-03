@@ -1,8 +1,7 @@
 <template>
     <div class="person-input">
-        {{ reloadInput }}
         <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass"
-            :value="writeResult2(value)" v-model="fullName" :name="control.name || control.uniqueId"
+            :value="value" v-model="fullName" :name="control.name || control.uniqueId"
             :placeholder="control.placeholderText" v-on:keyup="getContacts($event.target.value)"
             :disabled="isReadOnly" />
         <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length > 0'>
@@ -51,7 +50,9 @@ export default {
             }
         }
     },
-
+    mounted: function() {
+        writeResult2()
+  },
 
 
     methods: {
@@ -138,7 +139,8 @@ export default {
             return displayVal;
 
         },
-        writeResult2(res) {
+        writeResult2() {
+            res = this.value;
             console.log(res)
             if (res == '') {
                 setTimeout(() => {
