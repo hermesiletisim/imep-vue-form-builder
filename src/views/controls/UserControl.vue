@@ -1,9 +1,10 @@
 <template>
     <div class="person-input">
+        {{ reloadInput }}
         <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass"
             :value="writeResult2(value)" v-model="fullName" :name="control.name || control.uniqueId"
-            :placeholder="control.placeholderText" v-on:keyup="getContacts($event.target.value)" :disabled="isReadOnly"
-            :key="reloadInput" />
+            :placeholder="control.placeholderText" v-on:keyup="getContacts($event.target.value)"
+            :disabled="isReadOnly" />
         <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length > 0'>
             <div v-if="listOptions.length > 0">
                 <li class="autocomplete-result" v-for='(result, i) in listOptions' :key="i" @click="setResult(result)">
@@ -139,8 +140,10 @@ export default {
         },
         writeResult2(res) {
             console.log(res)
-            if(res==''){
+            if (res == '') {
                 reloadInput = !reloadInput
+                this.$forceUpdate();
+
             }
 
             if (res.name !== undefined) {
