@@ -2,8 +2,8 @@
     <div class="person-input">
         <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass"
             :value="writeResult2(value)" v-model="fullName" :name="control.name || control.uniqueId"
-            :placeholder="control.placeholderText" v-on:keyup="getContacts($event.target.value)"
-            :disabled="isReadOnly" :key="value"/>
+            :placeholder="control.placeholderText" v-on:keyup="getContacts($event.target.value)" :disabled="isReadOnly"
+            :key="value" />
         <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length > 0'>
             <div v-if="listOptions.length > 0">
                 <li class="autocomplete-result" v-for='(result, i) in listOptions' :key="i" @click="setResult(result)">
@@ -139,34 +139,28 @@ export default {
         writeResult2(res) {
             console.log(res)
 
-            if (res != '') {
-
+            if (res.name !== undefined) {
+                this.fullName = res.name
+                if (res.surName !== undefined) {
+                    this.fullName += ' ' + res.surName
+                }
+            }
+            else if (res.surName !== undefined) {
+                this.fullName = res.surName
                 if (res.name !== undefined) {
-                    this.fullName = res.name
-                    if (res.surName !== undefined) {
-                        this.fullName += ' ' + res.surName
-                    }
+                    this.fullName = res.name + ' ' + res.surName
                 }
-                else if (res.surName !== undefined) {
-                    this.fullName = res.surName
-                    if (res.name !== undefined) {
-                        this.fullName = res.name + ' ' + res.surName
-                    }
-                }
-                else if (res.email !== undefined) {
-                    this.fullName = res.email
-                }
-                else if (res.phone !== undefined) {
-                    this.fullName = res.phone
-                }
-                else {
-                    this.fullName = ""
-                }
-                return this.fullName;
             }
-            else{
-                this.writeResult2(res)
+            else if (res.email !== undefined) {
+                this.fullName = res.email
             }
+            else if (res.phone !== undefined) {
+                this.fullName = res.phone
+            }
+            else {
+                this.fullName = ""
+            }
+            return this.fullName;
 
         }
     },
