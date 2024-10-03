@@ -1,6 +1,6 @@
 <template>
     <div class="person-input">
-        <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass" :value="writeResult2(value)"
+        <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass" :value="value"
             v-model="fullName" :name="control.name || control.uniqueId" :placeholder="control.placeholderText"
             v-on:keyup="getContacts($event.target.value)" :disabled="isReadOnly" />
         <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length > 0'>
@@ -49,7 +49,10 @@ export default {
             }
         }
     },
-
+    updated: function() {
+    console.log(this.value)
+    writeResult2()
+  },
 
     methods: {
         getContacts(keyWord) {
@@ -135,8 +138,9 @@ export default {
             return displayVal;
 
         },
-        writeResult2(res) {
-            console.log(res)
+        writeResult2() {
+            let res = this.value;
+
             if (res.name !== undefined) {
                 this.fullName = res.name
                 if (res.surName !== undefined) {
@@ -158,6 +162,8 @@ export default {
             else {
                 this.fullName = ""
             }
+
+            console.log(this.fullName)
         }
     },
 
