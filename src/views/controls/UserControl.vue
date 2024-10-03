@@ -1,10 +1,9 @@
 <template>
     <div class="person-input">
-        {{ value.name }}
         <input :id="control.uniqueId"
            :type="control.typeAttribute"
            :class="controlFieldClass"
-           :value="writeResult(value)"
+           :value="writeResult2(value)"
            v-model="fullName"
            :name="control.name || control.uniqueId"
            :placeholder="control.placeholderText"
@@ -135,6 +134,34 @@
                 }
                 else if(result[0].phone !== undefined){
                     displayVal = result[0].phone
+                }
+                else{
+                    displayVal = ""
+                }
+                return displayVal;
+
+            },
+            writeResult2(res){
+                console.log(res)
+            
+                let displayVal
+                if(res.name !== undefined){
+                    displayVal = res.name
+                    if(res.surName !== undefined){
+                        displayVal += ' '+ res.surName
+                    }
+                }
+                else if(res.surName !== undefined){
+                    displayVal = res.surName
+                    if(res.name !== undefined){
+                        displayVal = res.name + ' '+ res.surName
+                    }
+                }
+                else if(res.email !== undefined){
+                    displayVal = res.email
+                }
+                else if(res.phone !== undefined){
+                    displayVal = res.phone
                 }
                 else{
                     displayVal = ""
