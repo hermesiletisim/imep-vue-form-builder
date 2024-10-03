@@ -91,13 +91,15 @@
                 
                 if(result[0].name !== undefined){
                     this.fullName = result[0].name
-                    if(result[0].surName !== undefined)
-                        this.fullName.concat(' ', result[0].surName)
+                    if(result[0].surName !== undefined){
+                        this.fullName += ' '+ result[0].surName
+                    }
                 }
                 else if(result[0].surName !== undefined){
                     this.fullName = result[0].surName
-                    if(result[0].name !== undefined)
-                        this.fullName = result[0].name.concat(' ', result[0].surName)
+                    if(result[0].name !== undefined){
+                        this.fullName = result[0].name + ' '+ result[0].surName
+                    }
                 }
                 else if(result[0].email !== undefined){
                     this.fullName = result[0].email
@@ -110,7 +112,7 @@
                 }
 
                 this.listOptions = []
-                this.updateValue(res._id.$oid)
+                this.updateValue(res)
             },
             writeResult(res){
                 console.log(res)
@@ -118,13 +120,15 @@
                 let displayVal
                 if(result[0].name !== undefined){
                     displayVal = result[0].name
-                    if(result[0].surName !== undefined)
-                        displayVal.concat(' ', result[0].surName)
+                    if(result[0].surName !== undefined){
+                        displayVal += ' '+ result[0].surName
+                    }
                 }
                 else if(result[0].surName !== undefined){
                     displayVal = result[0].surName
-                    if(result[0].name !== undefined)
-                        displayVal = result[0].name.concat(' ', result[0].surName)
+                    if(result[0].name !== undefined){
+                        displayVal = result[0].name + ' '+ result[0].surName
+                    }
                 }
                 else if(result[0].email !== undefined){
                     displayVal = result[0].email
