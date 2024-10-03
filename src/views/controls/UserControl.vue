@@ -3,7 +3,7 @@
         <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass"
             :value="writeResult2(value)" v-model="fullName" :name="control.name || control.uniqueId"
             :placeholder="control.placeholderText" v-on:keyup="getContacts($event.target.value)"
-            :disabled="isReadOnly" />
+            :disabled="isReadOnly" :key="value"/>
         <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length > 0'>
             <div v-if="listOptions.length > 0">
                 <li class="autocomplete-result" v-for='(result, i) in listOptions' :key="i" @click="setResult(result)">
@@ -139,34 +139,33 @@ export default {
         writeResult2(res) {
             console.log(res)
 
-            let displayVal
             if (res != '') {
 
                 if (res.name !== undefined) {
-                    displayVal = res.name
+                    this.fullName = res.name
                     if (res.surName !== undefined) {
-                        displayVal += ' ' + res.surName
+                        this.fullName += ' ' + res.surName
                     }
                 }
                 else if (res.surName !== undefined) {
-                    displayVal = res.surName
+                    this.fullName = res.surName
                     if (res.name !== undefined) {
-                        displayVal = res.name + ' ' + res.surName
+                        this.fullName = res.name + ' ' + res.surName
                     }
                 }
                 else if (res.email !== undefined) {
-                    displayVal = res.email
+                    this.fullName = res.email
                 }
                 else if (res.phone !== undefined) {
-                    displayVal = res.phone
+                    this.fullName = res.phone
                 }
                 else {
-                    displayVal = ""
+                    this.fullName = ""
                 }
-                return displayVal;
+                return this.fullName;
             }
             else{
-                writeResult2(res)
+                this.writeResult2(res)
             }
 
         }
