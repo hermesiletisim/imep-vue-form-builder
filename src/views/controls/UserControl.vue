@@ -1,6 +1,8 @@
 <template>
     <div class="person-input">
         {{ control }}
+        {{ value }}
+        {{ fullName }}
         <input :id="control.uniqueId"
            :type="control.typeAttribute"
            :class="controlFieldClass"
