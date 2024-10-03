@@ -51,7 +51,7 @@ export default {
         }
     },
     mounted: function() {
-        writeResult2()
+        this.writeResult2()
   },
 
 
