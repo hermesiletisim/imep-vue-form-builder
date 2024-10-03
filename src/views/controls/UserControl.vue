@@ -51,7 +51,9 @@ export default {
     },
     updated: function() {
     console.log(this.value)
-    this.writeResult2()
+    if(this.fullName==""){
+        this.writeResult2()
+    }
   },
 
     methods: {
