@@ -87,14 +87,28 @@
                                                  
             },
             setResult(res){
-                const result = this.listOptions.filter(item => item._id.$oid == res._id.$oid)
-
-                if(result[0].sn !== undefined){
-                    this.fullName = result[0].n + " " + result[0].sn
+                const result = this.listOptions.filter(item => item._id.$oid == res._id.$oid)                
+                
+                if(result[0].name !== undefined){
+                    this.fullName = result[0].name
+                    if(result[0].surName !== undefined)
+                        this.fullName.concat(' ', result[0].surName)
+                }
+                else if(result[0].surName !== undefined){
+                    this.fullName = result[0].surName
+                    if(result[0].name !== undefined)
+                        this.fullName = result[0].name.concat(' ', result[0].surName)
+                }
+                else if(result[0].email !== undefined){
+                    this.fullName = result[0].email
+                }
+                else if(result[0].phone !== undefined){
+                    this.fullName = result[0].phone
                 }
                 else{
-                    this.fullName = result[0].n
+                    this.fullName = ""
                 }
+
                 this.listOptions = []
                 this.updateValue(res._id.$oid)
             },
