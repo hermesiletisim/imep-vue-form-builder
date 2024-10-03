@@ -1,9 +1,8 @@
 <template>
     <div class="person-input">
-        <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass"
-            :value="value" v-model="fullName" :name="control.name || control.uniqueId"
-            :placeholder="control.placeholderText" v-on:keyup="getContacts($event.target.value)"
-            :disabled="isReadOnly" />
+        <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass" :value="writeResult2(value)"
+            v-model="fullName" :name="control.name || control.uniqueId" :placeholder="control.placeholderText"
+            v-on:keyup="getContacts($event.target.value)" :disabled="isReadOnly" />
         <ul class="new-dropdown border-0 p-0 autocomplete-results" v-show='listOptions.length > 0'>
             <div v-if="listOptions.length > 0">
                 <li class="autocomplete-result" v-for='(result, i) in listOptions' :key="i" @click="setResult(result)">
@@ -50,9 +49,6 @@ export default {
             }
         }
     },
-    mounted: function() {
-        this.writeResult2()
-  },
 
 
     methods: {
@@ -139,57 +135,28 @@ export default {
             return displayVal;
 
         },
-        writeResult2() {
-            let res = this.value;
+        writeResult2(res) {
             console.log(res)
-            if (res == '') {
-                setTimeout(() => {
-                    if (res.name !== undefined) {
-                        this.fullName = res.name
-                        if (res.surName !== undefined) {
-                            this.fullName += ' ' + res.surName
-                        }
-                    }
-                    else if (res.surName !== undefined) {
-                        this.fullName = res.surName
-                        if (res.name !== undefined) {
-                            this.fullName = res.name + ' ' + res.surName
-                        }
-                    }
-                    else if (res.email !== undefined) {
-                        this.fullName = res.email
-                    }
-                    else if (res.phone !== undefined) {
-                        this.fullName = res.phone
-                    }
-                    else {
-                        this.fullName = ""
-                    }
-                }, 500);
-
+            if (res.name !== undefined) {
+                this.fullName = res.name
+                if (res.surName !== undefined) {
+                    this.fullName += ' ' + res.surName
+                }
+            }
+            else if (res.surName !== undefined) {
+                this.fullName = res.surName
+                if (res.name !== undefined) {
+                    this.fullName = res.name + ' ' + res.surName
+                }
+            }
+            else if (res.email !== undefined) {
+                this.fullName = res.email
+            }
+            else if (res.phone !== undefined) {
+                this.fullName = res.phone
             }
             else {
-                if (res.name !== undefined) {
-                    this.fullName = res.name
-                    if (res.surName !== undefined) {
-                        this.fullName += ' ' + res.surName
-                    }
-                }
-                else if (res.surName !== undefined) {
-                    this.fullName = res.surName
-                    if (res.name !== undefined) {
-                        this.fullName = res.name + ' ' + res.surName
-                    }
-                }
-                else if (res.email !== undefined) {
-                    this.fullName = res.email
-                }
-                else if (res.phone !== undefined) {
-                    this.fullName = res.phone
-                }
-                else {
-                    this.fullName = ""
-                }
+                this.fullName = ""
             }
 
 
