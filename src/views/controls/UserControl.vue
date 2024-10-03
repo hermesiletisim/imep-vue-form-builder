@@ -51,7 +51,7 @@ export default {
     },
     updated: function() {
     console.log(this.value)
-    writeResult2()
+    this.writeResult2()
   },
 
     methods: {
