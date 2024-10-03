@@ -1,12 +1,10 @@
 <template>
     <div class="person-input">
-        {{ control }}
-        {{ value }}
-        {{ fullName }}
+        {{ value.name }}
         <input :id="control.uniqueId"
            :type="control.typeAttribute"
            :class="controlFieldClass"
-           :value="value"
+           :value="writeResult(value)"
            v-model="fullName"
            :name="control.name || control.uniqueId"
            :placeholder="control.placeholderText"
