@@ -140,7 +140,7 @@ export default {
 
         },
         writeResult2() {
-            res = this.value;
+            let res = this.value;
             console.log(res)
             if (res == '') {
                 setTimeout(() => {
