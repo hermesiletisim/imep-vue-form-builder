@@ -55,11 +55,10 @@ export default {
         },
 
         getName(controlInfo){
-            console.log(controlInfo);
             if(controlInfo.isCustomField){
                 return controlInfo.name;
             }
-            
+
             return this.$ml.get(controlInfo.name);
         }
     }

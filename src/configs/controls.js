@@ -425,8 +425,6 @@ function getCustomFields() {
 
         }
         if (res.data.status.code == 0) {
-            console.log("dfdsflsdkgnsgn");
-            console.log(res.data);
             for(let customfield of res.data.content.customFields){        
                 CONTROLS[customfield._id.$oid] = {
                     name: customfield.name,

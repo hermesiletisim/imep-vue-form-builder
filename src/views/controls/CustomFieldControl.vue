@@ -1,8 +1,15 @@
 <template>
     <div :class="dynamicClass">
-        <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass" :value="value"
-            v-model="vModel" :name="control.name || control.uniqueId" :placeholder="control.placeholderText"
-            :disabled="isReadOnly" />
+        <input
+            :id="control.uniqueId"
+            :type="control.typeAttribute"
+            :class="controlFieldClass"
+            :value="value"
+            :name="control.name || control.uniqueId"
+            :placeholder="control.placeholderText"
+            @input="updateValue($event.target.value)"
+            :disabled="isReadOnly"
+        />
     </div>
 
 
@@ -15,21 +22,13 @@ export default {
     name: "CustomFieldControl",
     mixins: [CONTROL_FIELD_EXTEND_MIXIN],
     props: ['isReadOnly'],
-    data: () => ({
-        vModel: "",
-        reloadInput: false,
-    }),
 
     computed: {
         dynamicClass() {
             // Dynamically construct the class name
             return `customfield-${this.control.type}-input`;
         }
-    },
-
-    methods: {
-
-    },
+    }
 
 }
 </script>
