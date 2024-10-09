@@ -2,380 +2,451 @@
  * Supported Controls in Vue-Form-Builder
  * @author Phat Tran
  */
- import {STYLES} from "@/configs/styles";
- import {HELPER} from "@/libraries/helper";
- import {
-     DATE_PICKER_RETURN_TYPES, DATE_PICKER_START_DATES,
- 
-     RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE,
- 
-     DROPDOWN_DATA_MODES,
- 
-     // FILE_UPLOAD_MODES
- } from "@/configs/control-config-enum";
- //
- // Control-GUI-Component
- import InputControl from "@/views/controls/InputControl"
- import TextControl from "@/views/controls/TextControl"
- import ButtonControl from "@/views/controls/ButtonControl"
- import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
- import TextBlockControl from "@/views/controls/TextBlockControl";
- import LabelControl from "@/views/controls/LabelControl";
- import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
- import DatePickerControl from "@/views/controls/DatePickerControl";
- import NumberControl from "@/views/controls/NumberControl";
- import DropdownControl from "@/views/controls/DropdownControl";
- import FileUploaderControl from "@/views/controls/FileUploaderControl";
- import UserControl from "@/views/controls/UserControl";
- import OrganizationControl from "@/views/controls/OrganizationControl";
- import DealControl from "@/views/controls/DealControl";
- 
- // Control-Config-Component
- import InputConfigView from "@/views/control-configs/InputConfigView";
- import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
- import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
- import LabelConfigView from "@/views/control-configs/LabelConfigView";
- import RadioCheckboxConfigView from "@/views/control-configs/RadioCheckboxConfigView";
- import NumberConfigView from "@/views/control-configs/NumberConfigView";
- import DatePickerConfigView from "@/views/control-configs/DatePickerConfigView";
- import TextConfigView from "@/views/control-configs/TextConfigView";
- import DropdownConfigView from "@/views/control-configs/DropdownConfigView";
- import FileUploaderConfigView from "@/views/control-configs/FileUploaderConfigView";
- import UserConfigView from "@/views/control-configs/UserConfigView";
- import OrganizationConfigView from "@/views/control-configs/OrganizationConfigView";
- import DealConfigView from "@/views/control-configs/DealConfigView";
- 
- const CONTROLS = {
-     input: {
-         name: "INPUT_FIELD",
-         description: "INPUT_FIELD_DESC",
-         icon: 'editPencil', // Follow ICON in `icon-facade.js` to see how it works.
- 
-         configData: {
-             typeAttribute: "text", // date, password
-         },
- 
-         // component mapping
-         fieldComponent: InputControl,
-         configComponent: InputConfigView,
-     },
- 
-     number: {
-         name: "NUMBER_INPUT_FIELD",
-         description: "NUMBER_INPUT_FIELD_DESC",
- 
-         configData: {
-             isReal: false, // integer or real (float/double)
-             decimalPlace: 1, // [For Real] 0.xxx?? (x = num of places)
-         },
- 
-         fieldComponent: NumberControl,
-         configComponent: NumberConfigView,
- 
-         /**
-          * As same like Vue-JS Property Default Data
-          * Specific field need some special data-type/structure, they need to
-          * put the creation in a factory method.
-          * It must return a value.
-          */
-         rendererDefaultData() {
-             return 0;
-         },
-     },
- 
-     text: {
-         name: "TEXT_FIELD",
-         description: "TEXT_FIELD_DESC",
- 
-         // config data for the input field - it will be merge with the CONTROL_DEFAULT_DATA
-         configData: {
-             rows: 3, // numeric
-         },
- 
-         // component mapping
-         fieldComponent: TextControl,
-         configComponent: TextConfigView
-     },
- 
-     // I would love to support this, but the thing is, many rich editors are too large:
-     // js: 150KB+
-     // css: 30KB+
-     // So 2.0.0 won't have this field.
-     // richText: {
-     //     name: "Rich-Text Field",
-     //     description: "Multiple line text field - Rich Editor (WYSIWYG)",
-     // },
- 
-     date: {
-         name: "DATE_PICKER",
-         description: "DATE_PICKER_DESC",
- 
-         configData: {
-             format: "DD/MM/YYYY",
-             firstDay: DATE_PICKER_START_DATES.monday.val, // 0 Sunday, 1 Monday,...
-             numberOfMonths: 1, // Number of Month(s) will be shown
-             numberOfColumns: 1, // Number of Column(s) will be shown
-             minDate: null, // min day (less => can't select)
-             maxDate: null,// max day (more => can't select),
- 
-             singleMode: true, // date or date-range
- 
-             // for date-range
-             minDays: 0, // min-day range
-             maxDays: 0, // max-day range
- 
-             returnType: DATE_PICKER_RETURN_TYPES.format.val, // specific return type
-         },
- 
-         fieldComponent: DatePickerControl,
-         configComponent: DatePickerConfigView
-     },
- 
-     // fileUpload: {
-     //     name: "File Upload",
-     //     description: "Upload single file through API",
-     //
-     //     configData: {
-     //         uploadMode: FILE_UPLOAD_MODES.normal.val,
-     //         apiURL: "", // API-Url to upload
-     //     },
-     // },
- 
-     dropDown: {
-         name: "DROPDOWN",
-         description: "DROPDOWN_DESC",
- 
-         configData: {
-             dataMode: DROPDOWN_DATA_MODES.list.val, // normal - api
-             multiple: false, // is multiple selection
- 
-             /**
-              * @var {ListItem[]} items
-              */
-             items: [], // for normal hard-list
- 
-             apiURL: "", // for api-request - must be entered
-             apiTextKey: "text", // <option>TEXT</option>
-             apiValueKey: "value", // <option value=value>...</option>
-         },
- 
-         fieldComponent: DropdownControl,
-         configComponent: DropdownConfigView,
-     },
-     
-     user: {
-         name: "CONTACT",
-         description: "CONTACT_DESC",
- 
-         configData: {
-             dataMode: DROPDOWN_DATA_MODES.api.val, // normal - api
-             multiple: false, // is multiple selection
- 
-             /**
-              * @var {ListItem[]} items
-              */
-             items: [], // for normal hard-list
- 
-             apiURL: "", // for api-request - must be entered
-             apiTextKey: "text", // <option>TEXT</option>
-             apiValueKey: "value", // <option value=value>...</option>
-         },
- 
-         fieldComponent: UserControl,
-         configComponent: UserConfigView,
-     },
- 
-     
-     
- 
-     checkbox: {
-         name: "CHECKBOX_LIST",
-         description: "CHECKBOX_LIST_DESC",
- 
-         configData: {
-             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
-             position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
- 
-             /**
-              * @var {ListItem[]} items
-              */
-             items: [], // list-item
-         },
- 
-         fieldComponent: RadioCheckboxControl,
-         configComponent: RadioCheckboxConfigView,
-         rendererDefaultData() {
-             return [];
-         },
-     },
- 
-     radio: {
-         name: "RADIO_LIST",
-         description: "RADIO_LIST_DESC",
- 
-         configData: {
-             displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
-             position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
-             /**
-              * @var {ListItem[]} items
-              */
-             items: [], // list-item
-         },
- 
-         fieldComponent: RadioCheckboxControl,
-         configComponent: RadioCheckboxConfigView
-     },
- 
-     fileUploader: {
-         name: "FILE_UPLOADER",
-         description: "FILE_UPLOADER_DESC",
-         disableValidation: true,
- 
-         // config data
-         configData: {
-             // for styling
-             buttonLabel: "Select File",
-             buttonClasses: "btn btn-primary",
- 
-             // for components
-             postActionURL: "/your-api-post-url-to-upload",
-             extensions: ".gif,.png,.jpg,.jpeg",
-             accept: "image/gif,image/jpeg,image/png",
-             maxSize: 1000, // in bytes - 0 unlimited
- 
-             isMultiple: false,
-             maximumFiles: 1, // if multiple is on, we need to configure this one
- 
-             // special configurations
-             // these will be appended when the vue-uploader-component make a request
-             headers: [],
-             postData: []
-         },
- 
-         fieldComponent: FileUploaderControl,
-         configComponent: FileUploaderConfigView
-     },
- 
-     label: {
-         name: "LABEL",
-         description: "LABEL_DESC",
-         disableValue: true,
-         
-         configData: {
-             forAttribute: null, // `for` for any control? (except the Label)
- 
-             // Override here in order to not show the Label
-             isShowLabel: false
-         },
- 
-         // no need validation
-         disableValidation: true,
-         fieldComponent: LabelControl,
-         configComponent: LabelConfigView
-     },
- 
-     button: {
-         name: "BUTTON",
-         description: "BUTTON_DESC",
-         disableValidation: true,
-         disableValue: true,
- 
-         configData: {
-             buttonClass: STYLES.BUTTON.PRIMARY,
-             buttonType: "button", // submit/reset/button/...
- 
-             emitEventCode: "", // like: "BtnClicked/clicked/change"
-             emitEventData: "", // special data to emit to let you know which button is clicked
- 
-             // if this is true => validation will be run before the real invoke method
-             isRunValidation: false,
- 
-             // Override here in order to not show the Label
-             isShowLabel: false,
-         },
- 
-         fieldComponent: ButtonControl,
-         configComponent: ButtonConfigView
-     },
- 
-     emptyBlock: {
-         name: "EMPTY_BLOCK",
-         description: "EMPTY_BLOCK_DESC",
-         disableValidation: true,
-         disableValue: true,
- 
-         fieldComponent: EmptyBlockControl,
- 
-         configData: {
-             // Override here in order to not show the Label
-             isShowLabel: false,
-         }
-     },
- 
-     textBlock: {
-         name: "TEXT_BLOCK",
-         description: "TEXT_BLOCK_DESC",
-         disableValidation: true,
-         disableValue: true, // if you provide this, the control field value will not be recorded.
- 
-         fieldComponent: TextBlockControl,
-         configComponent: TextBlockConfigView,
- 
-         configData: {
-             text: ""
-         }
-     }
- };
- 
- const CONTROL_DEFAULT_DATA = {
-     // default configuration
-     'uniqueId': '', // :id
-     'type': '', // control type...
-     'name': '', // :name
- 
-     'label': '',
-     'subLabel': '',
-     'isShowLabel': true,
- 
-     'placeholderText': '', // :placeholder
- 
-     'containerClass': STYLES.COLUMNS.COL4,
-     'additionalContainerClass': '', // :class for the <div> outer container
- 
-     'additionalFieldClass': '', // :class for <input> <select> ...
-     'additionalLabelClass': '', // :class for the <label>
- 
-     'defaultValue': '',
-     'permission': {},
-     /**
-      * Validation that applied to the control
-      * @var {ValidationRule[]} validations
-      */
-     'validations': [],
- 
-     // data of the others - coming up later
- };
- 
- /**
-  * Create new control data
-  * @param controlKey
-  * @returns {CONTROL_DEFAULT_DATA}
-  */
- function createControlData(controlKey) {
-     const newData = Object.assign({}, CONTROL_DEFAULT_DATA, CONTROLS[controlKey].configData || {})
- 
-     // set default data
-     newData.label = CONTROLS[controlKey].name
-     newData.type = controlKey
- 
-     // unique ID is a must - I used UUIDv4 => 99% Unique
-     newData.uniqueId = "control-" + HELPER.getUUIDv4()
- 
-     return newData
- }
- 
- export {
-     CONTROLS,
-     CONTROL_DEFAULT_DATA,
-     createControlData
- }
+import { STYLES } from "@/configs/styles";
+import { HELPER } from "@/libraries/helper";
+import {
+    DATE_PICKER_RETURN_TYPES,
+    DATE_PICKER_START_DATES,
+    RADIO_CHECKBOX_POSITION,
+    RADIO_CHECKBOX_STYLE,
+    DROPDOWN_DATA_MODES
+
+    // FILE_UPLOAD_MODES
+} from "@/configs/control-config-enum";
+//
+// Control-GUI-Component
+import InputControl from "@/views/controls/InputControl";
+import TextControl from "@/views/controls/TextControl";
+import ButtonControl from "@/views/controls/ButtonControl";
+import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
+import TextBlockControl from "@/views/controls/TextBlockControl";
+import LabelControl from "@/views/controls/LabelControl";
+import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
+import DatePickerControl from "@/views/controls/DatePickerControl";
+import NumberControl from "@/views/controls/NumberControl";
+import DropdownControl from "@/views/controls/DropdownControl";
+import FileUploaderControl from "@/views/controls/FileUploaderControl";
+import UserControl from "@/views/controls/UserControl";
+import ContactNameControl from "@/views/controls/ContactNameControl";
+import ContactSurNameControl from "@/views/controls/ContactSurNameControl";
+import CustomFieldControl from "@/views/controls/CustomFieldControl";
+import OrganizationControl from "@/views/controls/OrganizationControl";
+import DealControl from "@/views/controls/DealControl";
+
+// Control-Config-Component
+import InputConfigView from "@/views/control-configs/InputConfigView";
+import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
+import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
+import LabelConfigView from "@/views/control-configs/LabelConfigView";
+import RadioCheckboxConfigView from "@/views/control-configs/RadioCheckboxConfigView";
+import NumberConfigView from "@/views/control-configs/NumberConfigView";
+import DatePickerConfigView from "@/views/control-configs/DatePickerConfigView";
+import TextConfigView from "@/views/control-configs/TextConfigView";
+import DropdownConfigView from "@/views/control-configs/DropdownConfigView";
+import FileUploaderConfigView from "@/views/control-configs/FileUploaderConfigView";
+import UserConfigView from "@/views/control-configs/UserConfigView";
+import ContactNameConfigView from "@/views/control-configs/ContactNameConfigView";
+import ContactSurNameConfigView from "@/views/control-configs/ContactSurNameConfigView";
+import OrganizationConfigView from "@/views/control-configs/OrganizationConfigView";
+import DealConfigView from "@/views/control-configs/DealConfigView";
+
+import axios from 'axios'
+
+
+const CONTROLS = {
+    input: {
+        name: "INPUT_FIELD",
+        description: "INPUT_FIELD_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+        configData: {
+            typeAttribute: "text" // date, password
+        },
+
+        // component mapping
+        fieldComponent: InputControl,
+        configComponent: InputConfigView
+    },
+
+    number: {
+        name: "NUMBER_INPUT_FIELD",
+        description: "NUMBER_INPUT_FIELD_DESC",
+
+        configData: {
+            isReal: false, // integer or real (float/double)
+            decimalPlace: 1 // [For Real] 0.xxx?? (x = num of places)
+        },
+
+        fieldComponent: NumberControl,
+        configComponent: NumberConfigView,
+
+        /**
+         * As same like Vue-JS Property Default Data
+         * Specific field need some special data-type/structure, they need to
+         * put the creation in a factory method.
+         * It must return a value.
+         */
+        rendererDefaultData() {
+            return 0;
+        }
+    },
+
+    text: {
+        name: "TEXT_FIELD",
+        description: "TEXT_FIELD_DESC",
+
+        // config data for the input field - it will be merge with the CONTROL_DEFAULT_DATA
+        configData: {
+            rows: 3 // numeric
+        },
+
+        // component mapping
+        fieldComponent: TextControl,
+        configComponent: TextConfigView
+    },
+
+    // I would love to support this, but the thing is, many rich editors are too large:
+    // js: 150KB+
+    // css: 30KB+
+    // So 2.0.0 won't have this field.
+    // richText: {
+    //     name: "Rich-Text Field",
+    //     description: "Multiple line text field - Rich Editor (WYSIWYG)",
+    // },
+
+    date: {
+        name: "DATE_PICKER",
+        description: "DATE_PICKER_DESC",
+
+        configData: {
+            format: "DD/MM/YYYY",
+            firstDay: DATE_PICKER_START_DATES.monday.val, // 0 Sunday, 1 Monday,...
+            numberOfMonths: 1, // Number of Month(s) will be shown
+            numberOfColumns: 1, // Number of Column(s) will be shown
+            minDate: null, // min day (less => can't select)
+            maxDate: null, // max day (more => can't select),
+
+            singleMode: true, // date or date-range
+
+            // for date-range
+            minDays: 0, // min-day range
+            maxDays: 0, // max-day range
+
+            returnType: DATE_PICKER_RETURN_TYPES.format.val // specific return type
+        },
+
+        fieldComponent: DatePickerControl,
+        configComponent: DatePickerConfigView
+    },
+
+    // fileUpload: {
+    //     name: "File Upload",
+    //     description: "Upload single file through API",
+    //
+    //     configData: {
+    //         uploadMode: FILE_UPLOAD_MODES.normal.val,
+    //         apiURL: "", // API-Url to upload
+    //     },
+    // },
+
+    dropDown: {
+        name: "DROPDOWN",
+        description: "DROPDOWN_DESC",
+
+        configData: {
+            dataMode: DROPDOWN_DATA_MODES.list.val, // normal - api
+            multiple: false, // is multiple selection
+
+            /**
+             * @var {ListItem[]} items
+             */
+            items: [], // for normal hard-list
+
+            apiURL: "", // for api-request - must be entered
+            apiTextKey: "text", // <option>TEXT</option>
+            apiValueKey: "value" // <option value=value>...</option>
+        },
+
+        fieldComponent: DropdownControl,
+        configComponent: DropdownConfigView
+    },
+
+    user: {
+        name: "CONTACT",
+        description: "CONTACT_DESC",
+
+        configData: {
+            dataMode: DROPDOWN_DATA_MODES.api.val, // normal - api
+            multiple: false, // is multiple selection
+
+            /**
+             * @var {ListItem[]} items
+             */
+            items: [], // for normal hard-list
+
+            apiURL: "", // for api-request - must be entered
+            apiTextKey: "text", // <option>TEXT</option>
+            apiValueKey: "value" // <option value=value>...</option>
+        },
+
+        fieldComponent: UserControl,
+        configComponent: UserConfigView
+    },
+
+    contactName: {
+        name: "CONTACT_NAME",
+        description: "CONTACT_NAME_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+        configData: {
+            typeAttribute: "text" // date, password
+        },
+
+        // component mapping
+        fieldComponent: ContactNameControl,
+        configComponent: ContactNameConfigView
+    },
+
+    contactSurName: {
+        name: "CONTACT_SURNAME",
+        description: "CONTACT_SURNAME_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+        configData: {
+            typeAttribute: "text" // date, password
+        },
+
+        // component mapping
+        fieldComponent: ContactSurNameControl,
+        configComponent: ContactSurNameConfigView
+    },
+
+    checkbox: {
+        name: "CHECKBOX_LIST",
+        description: "CHECKBOX_LIST_DESC",
+
+        configData: {
+            displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
+            position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
+
+            /**
+             * @var {ListItem[]} items
+             */
+            items: [] // list-item
+        },
+
+        fieldComponent: RadioCheckboxControl,
+        configComponent: RadioCheckboxConfigView,
+        rendererDefaultData() {
+            return [];
+        }
+    },
+
+    radio: {
+        name: "RADIO_LIST",
+        description: "RADIO_LIST_DESC",
+
+        configData: {
+            displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
+            position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
+            /**
+             * @var {ListItem[]} items
+             */
+            items: [] // list-item
+        },
+
+        fieldComponent: RadioCheckboxControl,
+        configComponent: RadioCheckboxConfigView
+    },
+
+    fileUploader: {
+        name: "FILE_UPLOADER",
+        description: "FILE_UPLOADER_DESC",
+        disableValidation: true,
+
+        // config data
+        configData: {
+            // for styling
+            buttonLabel: "Select File",
+            buttonClasses: "btn btn-primary",
+
+            // for components
+            postActionURL: "/your-api-post-url-to-upload",
+            extensions: ".gif,.png,.jpg,.jpeg",
+            accept: "image/gif,image/jpeg,image/png",
+            maxSize: 1000, // in bytes - 0 unlimited
+
+            isMultiple: false,
+            maximumFiles: 1, // if multiple is on, we need to configure this one
+
+            // special configurations
+            // these will be appended when the vue-uploader-component make a request
+            headers: [],
+            postData: []
+        },
+
+        fieldComponent: FileUploaderControl,
+        configComponent: FileUploaderConfigView
+    },
+
+    label: {
+        name: "LABEL",
+        description: "LABEL_DESC",
+        disableValue: true,
+
+        configData: {
+            forAttribute: null, // `for` for any control? (except the Label)
+
+            // Override here in order to not show the Label
+            isShowLabel: false
+        },
+
+        // no need validation
+        disableValidation: true,
+        fieldComponent: LabelControl,
+        configComponent: LabelConfigView
+    },
+
+    button: {
+        name: "BUTTON",
+        description: "BUTTON_DESC",
+        disableValidation: true,
+        disableValue: true,
+
+        configData: {
+            buttonClass: STYLES.BUTTON.PRIMARY,
+            buttonType: "button", // submit/reset/button/...
+
+            emitEventCode: "", // like: "BtnClicked/clicked/change"
+            emitEventData: "", // special data to emit to let you know which button is clicked
+
+            // if this is true => validation will be run before the real invoke method
+            isRunValidation: false,
+
+            // Override here in order to not show the Label
+            isShowLabel: false
+        },
+
+        fieldComponent: ButtonControl,
+        configComponent: ButtonConfigView
+    },
+
+    emptyBlock: {
+        name: "EMPTY_BLOCK",
+        description: "EMPTY_BLOCK_DESC",
+        disableValidation: true,
+        disableValue: true,
+
+        fieldComponent: EmptyBlockControl,
+
+        configData: {
+            // Override here in order to not show the Label
+            isShowLabel: false
+        }
+    },
+
+    textBlock: {
+        name: "TEXT_BLOCK",
+        description: "TEXT_BLOCK_DESC",
+        disableValidation: true,
+        disableValue: true, // if you provide this, the control field value will not be recorded.
+
+        fieldComponent: TextBlockControl,
+        configComponent: TextBlockConfigView,
+
+        configData: {
+            text: ""
+        }
+    }
+};
+
+const CONTROL_DEFAULT_DATA = {
+    // default configuration
+    uniqueId: "", // :id
+    type: "", // control type...
+    name: "", // :name
+
+    label: "",
+    subLabel: "",
+    isShowLabel: true,
+
+    placeholderText: "", // :placeholder
+
+    containerClass: STYLES.COLUMNS.COL4,
+    additionalContainerClass: "", // :class for the <div> outer container
+
+    additionalFieldClass: "", // :class for <input> <select> ...
+    additionalLabelClass: "", // :class for the <label>
+
+    defaultValue: "",
+    permission: {},
+    /**
+     * Validation that applied to the control
+     * @var {ValidationRule[]} validations
+     */
+    validations: []
+
+    // data of the others - coming up later
+};
+
+/**
+ * Create new control data
+ * @param controlKey
+ * @returns {CONTROL_DEFAULT_DATA}
+ */
+function createControlData(controlKey) {
+    const newData = Object.assign(
+        {},
+        CONTROL_DEFAULT_DATA,
+        CONTROLS[controlKey].configData || {}
+    );
+
+    // set default data
+    newData.label = CONTROLS[controlKey].name;
+    newData.type = controlKey;
+
+    // unique ID is a must - I used UUIDv4 => 99% Unique
+    newData.uniqueId = "control-" + HELPER.getUUIDv4();
+
+    return newData;
+}
+
+function getCustomFields() {
+
+    axios({
+        method: 'POST',
+        url: '/getCustomFields',
+        baseURL: "https://new.iletisimmakinesi.com/api",
+        withCredentials: true
+    }).then((res) => {
+        return res
+    }).then((res) => {
+        if (!res.data.status) {
+
+        }
+        if (res.data.status.code == 0) {
+            console.log("dfdsflsdkgnsgn");
+            console.log(res.data);
+            for(let customfield of res.data.content.customfields){        
+                CONTROLS[customfield._id.$oid] = {
+                    name: customfield.name,
+                    isCustomField: true,
+                    description: "INPUT_FIELD_DESC",
+                    icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+            
+                    configData: {
+                        typeAttribute: "text" // date, password
+                    },
+            
+                    // component mapping
+                    fieldComponent: CustomFieldControl,
+                    configComponent: InputConfigView
+                }
+            }
+        }
+    })
+}
+
+getCustomFields();
+
+export { CONTROLS, CONTROL_DEFAULT_DATA, createControlData };

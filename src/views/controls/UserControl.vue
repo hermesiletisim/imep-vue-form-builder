@@ -58,14 +58,11 @@ export default {
 
     methods: {
         getContacts(keyWord) {
-            console.log("logggggggggggggggggg")
-            console.log(keyWord)
             this.fullName = keyWord
 
             var dataObj = {
                 search: keyWord
             }
-            console.log("quickFilterContacts")
             axios({
                 method: 'POST',
                 url: '/quickFilterContacts',

@@ -9,7 +9,7 @@
                 v-for="(controlInfo, controlKey) in controlTypes" v-show="!controlInfo.isHidden"
                 @click="selectedControl(controlKey)">
                 <div class="d-flex justify-content-between">
-                    <p class="type-headline ml-2" v-text="$ml.get(controlInfo.name)"></p>
+                    <p class="type-headline ml-2" v-text="getName(controlInfo)"></p>
                     <!-- <p class="type-desc" v-text="$ml.get(controlInfo.description)"></p> -->
                     <span id="icon" v-html="$form.getIcon('addOutline', '24px', '24px', '#000')"></span>
                 </div>
@@ -52,6 +52,15 @@ export default {
             // create
             this.newControlData = createControlData(controlKey)
             this.save(true)
+        },
+
+        getName(controlInfo){
+            console.log(controlInfo);
+            if(controlInfo.isCustomField){
+                return controlInfo.name;
+            }
+            
+            return this.$ml.get(controlInfo.name);
         }
     }
 }
