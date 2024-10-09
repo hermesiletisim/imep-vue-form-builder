@@ -54267,6 +54267,8 @@ function createControlData(controlKey) {
     newData.isCustomField = true;
   }
 
+  console.log("asdasd");
+  console.log(newData);
   return newData;
 }
 
