@@ -53891,7 +53891,7 @@ function getCustomFields() {
       console.log("dfdsflsdkgnsgn");
       console.log(res.data);
 
-      var _iterator = controls_createForOfIteratorHelper(res.data.content.customfields),
+      var _iterator = controls_createForOfIteratorHelper(res.data.content.customFields),
           _step;
 
       try {
