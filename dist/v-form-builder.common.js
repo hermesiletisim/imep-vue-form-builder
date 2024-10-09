@@ -54254,7 +54254,12 @@ function createControlData(controlKey) {
   var newData = Object.assign({}, CONTROL_DEFAULT_DATA, CONTROLS[controlKey].configData || {}); // set default data
 
   newData.label = CONTROLS[controlKey].name;
-  newData.type = controlKey; // unique ID is a must - I used UUIDv4 => 99% Unique
+  newData.type = controlKey;
+
+  if (CONTROLS[controlKey].isCustomField) {
+    newData.isCustomField = CONTROLS[controlKey].isCustomField;
+  } // unique ID is a must - I used UUIDv4 => 99% Unique
+
 
   newData.uniqueId = "control-" + helper["a" /* HELPER */].getUUIDv4();
   return newData;

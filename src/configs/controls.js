@@ -452,6 +452,9 @@ function createControlData(controlKey) {
     // set default data
     newData.label = CONTROLS[controlKey].name;
     newData.type = controlKey;
+    if(CONTROLS[controlKey].isCustomField){
+        newData.isCustomField = CONTROLS[controlKey].isCustomField
+    }
 
     // unique ID is a must - I used UUIDv4 => 99% Unique
     newData.uniqueId = "control-" + HELPER.getUUIDv4();
