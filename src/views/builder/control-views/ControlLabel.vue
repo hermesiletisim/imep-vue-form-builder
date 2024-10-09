@@ -1,7 +1,7 @@
 <template>
     <div class="control-label-container">
         <label
-            v-text="control.label"
+            v-text="getLabel(control)"
             :for="control.uniqueId"
             :class="[control.additionalLabelClass, isHidden ? 'line' : '']"
         />
@@ -28,6 +28,15 @@
             isHidden: {
                 type: Boolean,
                 default: false,
+            }
+        },
+        methods: {
+            getLabel(controlInfo){
+                if(controlInfo.isCustomField){
+                    return controlInfo.label;
+                }
+
+                return this.$ml.get(controlInfo.label);
             }
         }
     }

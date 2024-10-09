@@ -29,6 +29,9 @@ import FileUploaderControl from "@/views/controls/FileUploaderControl";
 import UserControl from "@/views/controls/UserControl";
 import ContactNameControl from "@/views/controls/ContactNameControl";
 import ContactSurNameControl from "@/views/controls/ContactSurNameControl";
+import ContactEmailControl from "@/views/controls/ContactEmailControl";
+import ContactPhoneControl from "@/views/controls/ContactPhoneControl";
+import ContactFaxControl from "@/views/controls/ContactFaxControl";
 import CustomFieldControl from "@/views/controls/CustomFieldControl";
 import OrganizationControl from "@/views/controls/OrganizationControl";
 import DealControl from "@/views/controls/DealControl";
@@ -47,6 +50,9 @@ import FileUploaderConfigView from "@/views/control-configs/FileUploaderConfigVi
 import UserConfigView from "@/views/control-configs/UserConfigView";
 import ContactNameConfigView from "@/views/control-configs/ContactNameConfigView";
 import ContactSurNameConfigView from "@/views/control-configs/ContactSurNameConfigView";
+import ContactEmailConfigView from "@/views/control-configs/ContactEmailConfigView";
+import ContactPhoneConfigView from "@/views/control-configs/ContactPhoneConfigView";
+import ContactFaxConfigView from "@/views/control-configs/ContactFaxConfigView";
 import OrganizationConfigView from "@/views/control-configs/OrganizationConfigView";
 import DealConfigView from "@/views/control-configs/DealConfigView";
 
@@ -219,6 +225,48 @@ const CONTROLS = {
         // component mapping
         fieldComponent: ContactSurNameControl,
         configComponent: ContactSurNameConfigView
+    },
+
+    contactEmail: {
+        name: "CONTACT_EMAIL",
+        description: "CONTACT_EMAIL_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+        configData: {
+            typeAttribute: "text" // date, password
+        },
+
+        // component mapping
+        fieldComponent: ContactEmailControl,
+        configComponent: ContactEmailConfigView
+    },
+
+    contactPhone: {
+        name: "CONTACT_PHONE",
+        description: "CONTACT_PHONE_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+        configData: {
+            typeAttribute: "text" // date, password
+        },
+
+        // component mapping
+        fieldComponent: ContactPhoneControl,
+        configComponent: ContactPhoneConfigView
+    },
+
+    contactFax: {
+        name: "CONTACT_FAX",
+        description: "CONTACT_FAX_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+        configData: {
+            typeAttribute: "text" // date, password
+        },
+
+        // component mapping
+        fieldComponent: ContactFaxControl,
+        configComponent: ContactFaxConfigView
     },
 
     checkbox: {
