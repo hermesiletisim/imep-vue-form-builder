@@ -1198,6 +1198,6 @@
     "verification_code_text":"“Google Authenticator” uygulamasından üretilen kodu aşağıya girin ve “Doğrulama Kodunu Aktif Et” butonuna basın",
     "activate_verification_code": "Doğrulama Kodunu Aktif Et",
     "two_step_verification_code": "Çift Aşamalı Doğrulama Kodu",
-    "two_step_verification_text":"“Google Authenticator” uygulamasında üretilmiş olan kodu girin."
-    
+    "two_step_verification_text":"“Google Authenticator” uygulamasında üretilmiş olan kodu girin.",
+    "testtt":"testttttt"
 } 
