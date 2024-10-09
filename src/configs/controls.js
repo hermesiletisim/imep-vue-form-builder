@@ -452,12 +452,13 @@ function createControlData(controlKey) {
     // set default data
     newData.label = CONTROLS[controlKey].name;
     newData.type = controlKey;
-    if(CONTROLS[controlKey].isCustomField){
-        newData.isCustomField = CONTROLS[controlKey].isCustomField
-    }
 
     // unique ID is a must - I used UUIDv4 => 99% Unique
     newData.uniqueId = "control-" + HELPER.getUUIDv4();
+    if(CONTROLS[controlKey].isCustomField){
+        newData.isCustomField = true
+    }
+
 
     return newData;
 }
@@ -494,8 +495,200 @@ function getCustomFields() {
             }
         }
     })
+
+    // for(let customfield of CUSTOMFIELDS){        
+    //     CONTROLS[customfield._id.$oid] = {
+    //         name: customfield.name,
+    //         isCustomField: true,
+    //         description: "INPUT_FIELD_DESC",
+    //         icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+    
+    //         configData: {
+    //             typeAttribute: "text" // date, password
+    //         },
+    
+    //         // component mapping
+    //         fieldComponent: CustomFieldControl,
+    //         configComponent: InputConfigView
+    //     }
+    // }
 }
 
-getCustomFields();
+
+// const CUSTOMFIELDS = [
+//     {
+//       "update_time": {
+//         "$date": "2023-05-05T11:40:05.896Z"
+//       },
+//       "domain": 1,
+//       "name": "Doğum Tarihi",
+//       "x": true,
+//       "_id": {
+//         "$oid": "6454eb150293d872a298b084"
+//       },
+//       "tag": "[##Doğum Tarihi##]",
+//       "field_type": 3,
+//       "add_time": {
+//         "$date": "2023-05-05T11:40:05.896Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     },
+//     {
+//       "update_time": {
+//         "$date": "2023-05-05T11:41:46.910Z"
+//       },
+//       "domain": 1,
+//       "name": "Müşteri Tipi",
+//       "x": true,
+//       "_id": {
+//         "$oid": "6454eb7a0293d872a298b085"
+//       },
+//       "tag": "[##Müşteri Tipi##]",
+//       "field_type": 1,
+//       "add_time": {
+//         "$date": "2023-05-05T11:41:46.910Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     },
+//     {
+//       "update_time": {
+//         "$date": "2023-05-05T11:42:49.326Z"
+//       },
+//       "domain": 1,
+//       "name": "Posta Kodu",
+//       "x": true,
+//       "_id": {
+//         "$oid": "6454ebb90293d872a298b086"
+//       },
+//       "tag": "[##Posta Kodu##]",
+//       "field_type": 2,
+//       "add_time": {
+//         "$date": "2023-05-05T11:42:49.326Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     },
+//     {
+//       "update_time": {
+//         "$date": "2023-05-05T11:42:55.417Z"
+//       },
+//       "domain": 1,
+//       "name": "Şehir",
+//       "x": true,
+//       "_id": {
+//         "$oid": "6454ebbf0293d872a298b087"
+//       },
+//       "tag": "[##Şehir##]",
+//       "field_type": 1,
+//       "add_time": {
+//         "$date": "2023-05-05T11:42:55.417Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     },
+//     {
+//       "update_time": {
+//         "$date": "2023-05-09T10:58:08.866Z"
+//       },
+//       "domain": 1,
+//       "name": "evlilik",
+//       "x": true,
+//       "_id": {
+//         "$oid": "645a2740e34cfa3553e773a9"
+//       },
+//       "tag": "[##evlilik##]",
+//       "field_type": 3,
+//       "add_time": {
+//         "$date": "2023-05-09T10:58:08.866Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     },
+//     {
+//       "update_time": {
+//         "$date": "2023-05-09T10:58:20.190Z"
+//       },
+//       "domain": 1,
+//       "name": "konsol",
+//       "x": true,
+//       "_id": {
+//         "$oid": "645a274ce34cfa3553e773aa"
+//       },
+//       "tag": "[##konsol##]",
+//       "field_type": 1,
+//       "add_time": {
+//         "$date": "2023-05-09T10:58:20.190Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     },
+//     {
+//       "update_time": {
+//         "$date": "2023-05-09T10:58:35.046Z"
+//       },
+//       "domain": 1,
+//       "name": "ayakkabı",
+//       "x": true,
+//       "_id": {
+//         "$oid": "645a275be34cfa3553e773ab"
+//       },
+//       "tag": "[##ayakkabı##]",
+//       "field_type": 2,
+//       "add_time": {
+//         "$date": "2023-05-09T10:58:35.046Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     },
+//     {
+//       "update_time": {
+//         "$date": "2023-05-24T06:44:14.231Z"
+//       },
+//       "domain": 1,
+//       "name": "plaka",
+//       "x": true,
+//       "_id": {
+//         "$oid": "646db21157a2120e5a6a0b3d"
+//       },
+//       "tag": "[##plaka##]",
+//       "field_type": 1,
+//       "add_time": {
+//         "$date": "2023-05-24T06:43:29.220Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     },
+//     {
+//       "update_time": {
+//         "$date": "2023-05-24T11:50:28.412Z"
+//       },
+//       "domain": 1,
+//       "name": "asdsad",
+//       "x": true,
+//       "_id": {
+//         "$oid": "646dfa0457a2120e5a6a0b4b"
+//       },
+//       "tag": "[##asdsad##]",
+//       "field_type": 1,
+//       "add_time": {
+//         "$date": "2023-05-24T11:50:28.412Z"
+//       },
+//       "cid": {
+//         "$oid": "63e4904defce006ecf5ef9dc"
+//       }
+//     }
+//   ]
+
+  getCustomFields();
 
 export { CONTROLS, CONTROL_DEFAULT_DATA, createControlData };

@@ -32,6 +32,8 @@
         },
         methods: {
             getLabel(controlInfo){
+                console.log("controlinfo");
+                console.log(controlInfo);
                 if(controlInfo.isCustomField){
                     return controlInfo.label;
                 }
