@@ -37,8 +37,11 @@
                 if(controlInfo.isCustomField){
                     return controlInfo.label;
                 }
+                else{
+                    
+                    return this.$ml.get(controlInfo.label) == undefined ? controlInfo.label: this.$ml.get(controlInfo.label);
+                }
 
-                return this.$ml.get(controlInfo.label);
             }
         }
     }
