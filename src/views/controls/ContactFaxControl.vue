@@ -1,8 +1,15 @@
 <template>
     <div class="contact-fax-input">
-        <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass" :value="value"
-            v-model="contactFax" :name="control.name || control.uniqueId" :placeholder="control.placeholderText"
-            :disabled="isReadOnly" />
+        <input
+            :id="control.uniqueId"
+            :type="control.typeAttribute"
+            :class="controlFieldClass"
+            :value="value"
+            :name="control.name || control.uniqueId"
+            :placeholder="control.placeholderText"
+            @input="updateValue($event.target.value)"
+            :disabled="isReadOnly"
+        />
     </div>
 
 

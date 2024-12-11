@@ -177,27 +177,27 @@ const CONTROLS = {
         configComponent: DropdownConfigView
     },
 
-    user: {
-        name: "CONTACT",
-        description: "CONTACT_DESC",
+    // user: {
+    //     name: "CONTACT",
+    //     description: "CONTACT_DESC",
 
-        configData: {
-            dataMode: DROPDOWN_DATA_MODES.api.val, // normal - api
-            multiple: false, // is multiple selection
+    //     configData: {
+    //         dataMode: DROPDOWN_DATA_MODES.api.val, // normal - api
+    //         multiple: false, // is multiple selection
 
-            /**
-             * @var {ListItem[]} items
-             */
-            items: [], // for normal hard-list
+    //         /**
+    //          * @var {ListItem[]} items
+    //          */
+    //         items: [], // for normal hard-list
 
-            apiURL: "", // for api-request - must be entered
-            apiTextKey: "text", // <option>TEXT</option>
-            apiValueKey: "value" // <option value=value>...</option>
-        },
+    //         apiURL: "", // for api-request - must be entered
+    //         apiTextKey: "text", // <option>TEXT</option>
+    //         apiValueKey: "value" // <option value=value>...</option>
+    //     },
 
-        fieldComponent: UserControl,
-        configComponent: UserConfigView
-    },
+    //     fieldComponent: UserControl,
+    //     configComponent: UserConfigView
+    // },
 
     contactName: {
         name: "CONTACT_NAME",
@@ -459,8 +459,6 @@ function createControlData(controlKey) {
         newData.isCustomField = true
     }
 
-    console.log("asdasd");
-    console.log(newData);
     return newData;
 }
 

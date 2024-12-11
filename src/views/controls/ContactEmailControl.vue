@@ -1,8 +1,15 @@
 <template>
     <div class="contact-email-input">
-        <input :id="control.uniqueId" :type="control.typeAttribute" :class="controlFieldClass" :value="value"
-            v-model="contactEmail" :name="control.name || control.uniqueId" :placeholder="control.placeholderText"
-            :disabled="isReadOnly" />
+        <input 
+        :id="control.uniqueId"
+            :type="control.typeAttribute"
+            :class="controlFieldClass"
+            :value="value"
+            :name="control.name || control.uniqueId"
+            :placeholder="control.placeholderText"
+            @input="updateValue($event.target.value)"
+            :disabled="isReadOnly"
+        />
     </div>
 
 
