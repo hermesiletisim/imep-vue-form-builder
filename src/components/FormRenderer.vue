@@ -1,5 +1,5 @@
 <template>
-    <div :class="[styles.CONTAINER.FLUID, 'form-padding', 'vue-form-renderer']" style="width: 60%; background-color: beige;padding-top: 1px;">
+    <div :class="[styles.CONTAINER.FLUID, 'form-padding', 'vue-form-renderer']">
 
         <!-- Render Form Tag Or Not -->
         <form
