@@ -1,10 +1,9 @@
 <template>
-    <div class="sidebar">
+    <div class="sidebar" :class="{ mirrored: isSidebarControlConfiguration, not_mirrored: !isSidebarControlConfiguration  }">
         <span class="close"
               @click="close"
               v-html="$form.getIcon('close', '24px', '24px', '#000')">
         </span>
-
         <!--- For dynamic purpose --->
         <component v-if="component"
 
@@ -23,7 +22,7 @@
 <script>
     import {EVENT_CONSTANTS} from "@/configs/events";
     import {ALERT_DIALOG} from "@/libraries/alert-dialog";
-
+    import SidebarControlSelectList from "./sidebar-config-views/SidebarControlSelectList.vue";
     const SIDEBAR_WIDTH_SIZE = "20vw"
 
     export default {
@@ -43,15 +42,21 @@
             runnerId: null,
             isOpen: false,
         }),
+        computed: {
+        isSidebarControlConfiguration() {
+            console.log(this.component)
+            return this.component && this.component.name === "SidebarControlSelectList";
+        }
+    },
         methods: {
             /**
              * Open the Right Sidebar
              */
             open(runnerId) {
-                if (this.isOpen) {
-                    ALERT_DIALOG.show('Please close the current active sidebar before open another')
-                    return
-                }
+                // if (this.isOpen) {
+                //     ALERT_DIALOG.show('Please close the current active sidebar before open another')
+                //     return
+                // }
 
                 // set size
                 this.$el.style.width = SIDEBAR_WIDTH_SIZE
@@ -137,5 +142,11 @@
 <style>
 .sidebar{
  margin-top: 55px;
+}
+.mirrored {
+    left: 0;
+}
+.not_mirrored {
+    right: 0;
 }
 </style>
