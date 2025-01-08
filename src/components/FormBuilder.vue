@@ -1,5 +1,5 @@
 <template>
-    <div :class="[styles.CONTAINER.FLUID, 'form-padding', 'vue-form-builder']">
+    <div :class="[styles.CONTAINER.FLUID, 'form-padding', 'vue-form-builder']" style="width: 60%; background-color: beige; padding-top: 1px;">
         <!-- top configuration -->
         <!-- <FormConfiguration
             :permissions="permissions"

@@ -4,18 +4,16 @@
         <h5>{{ $ml.get("ADD_CONTROL_TO_YOUR_SECTION") }}</h5>
 
 
-        <div :class="[styles.LIST_GROUP.CONTAINER]">
-            <a href="javascript:void(0)" :class="styles.LIST_GROUP.SINGLE_ITEM"
-                v-for="(controlInfo, controlKey) in controlTypes" v-show="!controlInfo.isHidden"
-                @click="selectedControl(controlKey)">
-                <div class="d-flex justify-content-between">
-                    <p class="type-headline ml-2" v-text="getName(controlInfo)"></p>
-                    <!-- <p class="type-desc" v-text="$ml.get(controlInfo.description)"></p> -->
-                    <span id="icon" v-html="$form.getIcon('addOutline', '24px', '24px', '#000')"></span>
+        <div :class="[styles.CONTROLS_LIST.CONTAINER]">
+            <a href="javascript:void(0)" draggable @dragstart="startDrag($event, controlKey)"
+                :class="styles.CONTROLS_LIST.SINGLE_ITEM" v-for="(controlInfo, controlKey) in controlTypes"
+                v-show="!controlInfo.isHidden" @click="selectedControl(controlKey)">
+                <div class="d-flex align-items-center">
+                    <div class="icon" v-html="ICONS_ARRAY[controlInfo.name]"></div>
+                    <p class="type-headline ml-3 mb-0" v-text="getName(controlInfo)"></p>
+                    <!-- SVG icon -->
                 </div>
-
             </a>
-
         </div>
 
     </div>
@@ -25,6 +23,7 @@
 import { STYLE_INJECTION_MIXIN } from "@/mixins/style-injection-mixin";
 import { CONTROLS, createControlData } from "@/configs/controls";
 import { SIDEBAR_BODY_MIXIN } from "@/mixins/sidebar-body-mixin";
+import { ICONS_ARRAY } from "@/bootstrap-icons/input.icon.js";
 
 export default {
     name: "SidebarControlSelectList",
@@ -35,42 +34,41 @@ export default {
 
     data: () => ({
         dataKey: "newControlData",
-        newControlData: null
+        newControlData: null,
+        ICONS_ARRAY // SVG stringini burada erişilebilir hale getiriyoruz
     }),
 
     methods: {
-        /**
-         * Selected a control => we will generate a new control data then emit it to the section
-         * @param controlKey
-         */
         selectedControl(controlKey) {
             if (!CONTROLS[controlKey]) {
-                alert(`Control ${controlKey} doesn't exists in Vue-Form-Builder`)
+                alert(`Control ${controlKey} doesn't exist in Vue-Form-Builder`)
                 return
             }
 
-            // create
             this.newControlData = createControlData(controlKey)
             this.save(true)
         },
 
-        getName(controlInfo){
-            if(controlInfo.isCustomField){
-                return controlInfo.name;
+        getName(controlInfo) {
+            if (controlInfo.isCustomField) {
+                return controlInfo.name
             }
+            return this.$ml.get(controlInfo.name)
+        },
+        
+        startDrag(evt, controlKey) {
+            evt.dataTransfer.dropEffect = 'move'
+            evt.dataTransfer.effectAllowed = 'move'
+            evt.dataTransfer.setData("controlKey", controlKey);
+        },
 
-            return this.$ml.get(controlInfo.name);
-        }
     }
 }
 </script>
 
 <style scoped>
-#icon {
-    opacity: 0;
-}
-
-#icon:hover{
-    opacity: 100;
+.icon {
+    display: flex;
+    align-items: center;
 }
 </style>

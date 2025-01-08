@@ -84,6 +84,9 @@
             }
         },
 
+        mounted(){
+            this.openAddControl()  
+        },
         created() {
             // listen to Global Sidebar
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, this.afterOpenedSidebar)

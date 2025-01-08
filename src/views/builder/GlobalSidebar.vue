@@ -24,7 +24,7 @@
     import {EVENT_CONSTANTS} from "@/configs/events";
     import {ALERT_DIALOG} from "@/libraries/alert-dialog";
 
-    const SIDEBAR_WIDTH_SIZE = "325px"
+    const SIDEBAR_WIDTH_SIZE = "20vw"
 
     export default {
         name: "GlobalSidebar",
@@ -55,7 +55,7 @@
 
                 // set size
                 this.$el.style.width = SIDEBAR_WIDTH_SIZE
-                document.getElementsByTagName("body")[0].style.marginRight = SIDEBAR_WIDTH_SIZE
+                // document.getElementsByTagName("body")[0].style.marginRight = SIDEBAR_WIDTH_SIZE
 
                 // turn on flag and notify watcher that sidebar is opened
                 // `runnerId` will be sent back in order to make sure other components will touch yours

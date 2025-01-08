@@ -39,6 +39,11 @@ const STYLES = {
         SINGLE_ITEM: "list-group-item list-group-item-action md-list-item md-list-item-action", //a[href=...].list-group-item.list-group-item-action
     },
 
+    CONTROLS_LIST:{
+        CONTAINER: "list-group md-list d-flex align-items-center ", // div.list-group
+        SINGLE_ITEM: "list-group-item list-group-item-action md-list-item md-list-item-action mb-2", //a[href=...].list-group-item.list-group-item-action
+    },
+
     /**
      * Button Classes
      */
