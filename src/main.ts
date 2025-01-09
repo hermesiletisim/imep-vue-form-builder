@@ -10,7 +10,6 @@ import App from './App.vue'
 import {VueFormBuilderPlugin} from "@/index";
 import {IRegisterProperties} from "@/interfaces/register-properties.interface";
 import './language/ml'
-export const EventBus = new Vue();
 
 Vue.config.productionTip = false
 

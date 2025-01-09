@@ -12,7 +12,6 @@
     import {EVENT_CONSTANTS} from "@/configs/events";
     import SidebarRenderer from "@/libraries/sidebar-renderer.class";
     import SidebarControlSelectList from "@/views/builder/sidebar-config-views/SidebarControlSelectList";
-    import { EventBus } from "../../../main";
 
     export default {
         name: "AddControlControl",
@@ -29,9 +28,6 @@
             show: false
         }),
         methods:{
-            sendEvent(runnerId) {
-                EventBus.$emit("custom-event", this.runnerId);
-            },
             /**
              * Open the sidebar to add control yeah yeah
              */
