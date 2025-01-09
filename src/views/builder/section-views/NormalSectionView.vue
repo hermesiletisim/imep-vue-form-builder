@@ -6,7 +6,7 @@
         </div>
 
         <!--- SHOW CONTROLS WITH SORTABLE --->
-        <div @drop="onDrop($event)" @dragover.prevent >
+        <div @drop="onDrop($event)" @dragover.prevent>
             <draggable :class="draggableClasses" ghost-class="ghost" :handle="dragControlHandle"
                 :list="section.controls" :group="dragGroup" :disabled="!permissions.canReOrderingControl">
 
@@ -39,7 +39,7 @@ import { SIDEBAR_BODY_MIXIN } from "@/mixins/sidebar-body-mixin";
  */
 export default {
     name: "NormalSectionView",
-    mixins: [SECTION_VIEW_MIXINS,SIDEBAR_BODY_MIXIN],
+    mixins: [SECTION_VIEW_MIXINS, SIDEBAR_BODY_MIXIN],
     props: {
         sortedSections: Array
     },
@@ -63,16 +63,15 @@ export default {
     },
     methods: {
         onDrop(evt) {
-            // let controlKey = evt.dataTransfer.getData("controlKey");
-            // if (!CONTROLS[controlKey]) {
-            //     alert(`Control ${controlKey} doesn't exist in Vue-Form-Builder`)
-            //     return
-            // }
+            let controlKey = evt.dataTransfer.getData("controlKey");
+            if (!CONTROLS[controlKey]) {
+                alert(`Control ${controlKey} doesn't exist in Vue-Form-Builder`)
+                return
+            }
 
-            // this.newControlData = createControlData(controlKey);
-            // console.log(this.newControlData);
-            // this.save(true);
+            this.newControlData = createControlData(controlKey);
+            this.save(true)
         },
-    }
+    },
 }
 </script>

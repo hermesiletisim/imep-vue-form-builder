@@ -32,7 +32,7 @@
         />
 
         <div class="buttons">
-            <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
+            <button :class="styles.BUTTON.PRIMARY" @click="save(false)"> 
                 {{$ml.get("SAVE")}}
             </button>
             <button :class="styles.BUTTON.INFO" @click="save(true)">

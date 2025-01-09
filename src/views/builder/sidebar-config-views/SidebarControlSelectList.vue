@@ -24,6 +24,7 @@ import { STYLE_INJECTION_MIXIN } from "@/mixins/style-injection-mixin";
 import { CONTROLS, createControlData } from "@/configs/controls";
 import { SIDEBAR_BODY_MIXIN } from "@/mixins/sidebar-body-mixin";
 import { ICONS_ARRAY } from "@/bootstrap-icons/input.icon.js";
+import { EVENT_CONSTANTS } from "@/configs/events";
 
 export default {
     name: "SidebarControlSelectList",
@@ -35,7 +36,8 @@ export default {
     data: () => ({
         dataKey: "newControlData",
         newControlData: null,
-        ICONS_ARRAY // SVG stringini burada erişilebilir hale getiriyoruz
+        ICONS_ARRAY, // SVG stringini burada erişilebilir hale getiriyoruz
+        runnerId: null,
     }),
 
     methods: {
@@ -46,7 +48,18 @@ export default {
             }
 
             this.newControlData = createControlData(controlKey)
+            // this.save2()
             this.save(true)
+        },
+
+        save2() {
+            console.log("ssadasdasd")
+            let specialData = true;
+            this.$formEvent.$emit(
+                EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE,
+                this.runnerId,
+                Object.assign({}, specialData)
+            )
         },
 
         getName(controlInfo) {
@@ -55,7 +68,7 @@ export default {
             }
             return this.$ml.get(controlInfo.name)
         },
-        
+
         startDrag(evt, controlKey) {
             evt.dataTransfer.dropEffect = 'move'
             evt.dataTransfer.effectAllowed = 'move'
