@@ -38,7 +38,7 @@
                 //     this.runnerId,
                 //     Object.assign({}, specialData)
                 // )
-                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, this.runnerId)
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.OPEN, this.runnerId)
             },
 
             /**
@@ -57,7 +57,7 @@
              * Trigger this to render the GlobalSidebar for Select Controls
              */
             renderSidebar() {
-                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.INJECT, new SidebarRenderer(
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.INJECT, new SidebarRenderer(
                     this.runnerId,
                     SidebarControlSelectList,
                     this.section
@@ -70,6 +70,8 @@
             createNewControlForSection(runnerId, controlObj) {
                 // runnerId to check the right identifier of the Invoker
                 // uniqueId to check if we create new control or not
+                // console.log(this.runnerId)
+                // console.log(runnerId)
                 if (this.runnerId !== runnerId) {
                     return
                 }
@@ -95,8 +97,8 @@
         },
         created() {
             // listen to Global Sidebar
-            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, this.afterOpenedSidebar)
-            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE, this.createNewControlForSection)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.OPENED, this.afterOpenedSidebar)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.SAVE_AND_CLOSE, this.createNewControlForSection)
         },
     }
 

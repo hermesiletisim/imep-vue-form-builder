@@ -44,9 +44,32 @@ const EVENT_CONSTANTS = {
          */
         SIDEBAR: {
             INJECT: "builder.sidebar.inject",
-            OPEN: "builder.sidebar.open",
+            OPEN: "builder.sidebar.open", 
             OPENED: "builder.sidebar.opened",
-
+            CONTROL: {
+                INJECT: "builder.sidebar.control.inject",
+                OPEN: "builder.sidebar.control.open",
+                OPENED: "builder.sidebar.control.opened", 
+                SAVE: "builder.sidebar.control.save",
+                SAVE_AND_CLOSE: "builder.sidebar.control.save_and_close",
+                AFTER_CLOSED: "builder.sidebar.control.after_closed",
+            },
+            CONTROL_CONFIG: {
+                INJECT: "builder.sidebar.control_config.inject",
+                OPEN: "builder.sidebar.control_config.open",
+                OPENED: "builder.sidebar.control_config.opened", 
+                SAVE: "builder.sidebar.control_config.save",
+                SAVE_AND_CLOSE: "builder.sidebar.control_config.save_and_close",
+                AFTER_CLOSED: "builder.sidebar.control_config.after_closed",
+            },
+            SECTION_CONFIG: {
+                INJECT: "builder.sidebar.section_config.inject",
+                OPEN: "builder.sidebar.section_config.open",
+                OPENED: "builder.sidebar.section_config.opened", 
+                SAVE: "builder.sidebar.section_config.save",
+                SAVE_AND_CLOSE: "builder.sidebar.section_config.save_and_close",
+                AFTER_CLOSED: "builder.sidebar.section_config.after_closed",
+            },
             SAVE: "builder.sidebar.save",
             SAVE_AND_CLOSE: "builder.sidebar.save_and_close",
 

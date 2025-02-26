@@ -35,9 +35,9 @@
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)"> 
                 {{$ml.get("SAVE")}}
             </button>
-            <button :class="styles.BUTTON.INFO" @click="save(true)">
+            <!-- <button :class="styles.BUTTON.INFO" @click="save(true)">
                  {{$ml.get("SAVE_CLOSE")}}
-            </button>
+            </button> -->
         </div>
     </div>
 </template>

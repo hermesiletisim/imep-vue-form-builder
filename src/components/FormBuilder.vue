@@ -29,6 +29,10 @@
         />
 
         <!-- global stuff -->
+        <GlobalSidebarCopy
+            :formData="formData"
+            :permissions="permissions"
+        />
         <GlobalSidebar
             :formData="formData"
             :permissions="permissions"
@@ -49,6 +53,7 @@
     import FormBuilderBusiness from "@/mixins/form-builder-mixins";
     import FormConfiguration from "@/views/builder/FormConfiguration";
     import GlobalSidebar from "@/views/builder/GlobalSidebar";
+    import GlobalSidebarCopy from "@/views/builder/GlobalSidebar copy.vue";
     import GlobalModal from "@/views/builder/GlobalModal";
     import DefaultPermission from "@/configs/roles";
 
@@ -59,7 +64,8 @@
             GlobalSidebar,
             FormConfiguration,
             SectionContainer,
-            AddSectionControl
+            AddSectionControl,
+            GlobalSidebarCopy
         },
         mixins: FormBuilderBusiness,
 

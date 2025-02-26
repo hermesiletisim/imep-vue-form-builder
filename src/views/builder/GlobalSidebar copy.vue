@@ -1,12 +1,13 @@
 <template>
-    <div class="sidebar">
+    <div class="sidebar mirrored">
         <!-- <span class="close"
               @click="close"
               v-html="$form.getIcon('close', '24px', '24px', '#000')">
         </span> -->
         <!--- For dynamic purpose --->
-        <component :is="component" :dataPackage="dynamicData"
-            :formData="formData" :permissions="permissions" @save="save" @saveAndClose="saveAndClose" @close="close" />
+        <SidebarControlSelectList :dataPackage="dynamicDataControl"
+            :formData="formData" :permissions="permissions" :runnerId="runnerIdControl" @save="saveControl"
+            @saveAndClose="saveAndCloseControl" @close="closeControl" />
     </div>
 </template>
 
@@ -30,55 +31,43 @@ export default {
         permissions: Object
     },
     data: () => ({
-        component: null,
-        dynamicData: {},
-        runnerId: null,
-        isOpen: false,
-
         componentControl: null,
         dynamicDataControl: {},
         runnerIdControl: null,
         isOpenControl: false,
     }),
     computed: {
-        isSidebarControlConfiguration() {
-            return this.component && this.component.name === "SidebarControlSelectList";
-        }
+
     },
     methods: {
         /**
          * Open the Right Sidebar
          */
-        open(runnerId) {
-            if (this.isOpen) {
-                // console.log("asdasd", this.component.name)
-                this.close();
+
+        // SidebarControlComponent
+        openControl(runnerId) {
+            if (this.isOpenControl) {
+                this.closeControl();
             }
 
             // set size
             this.$el.style.width = SIDEBAR_WIDTH_SIZE
             // document.getElementsByTagName("body")[0].style.marginRight = SIDEBAR_WIDTH_SIZE
-           
+
             // turn on flag and notify watcher that sidebar is opened
             // `runnerId` will be sent back in order to make sure other components will touch yours
-            setTimeout(() => {
-                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, runnerId)
-                this.isOpen = true
-            }, 100);
-            
-            
+            this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.OPENED, runnerId)
+            this.isOpenControl = true
         },
 
         /**
          * Save - Emitting data to the listener but do not close the sidebar
          * @hook Emit Data to the Listener
          */
-        save(specialData = {}) {
-            // console.log("save")
-
+        saveControl(specialData = {}) {
             this.$formEvent.$emit(
-                EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE,
-                this.runnerId,
+                EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.SAVE,
+                this.runnerIdControl,
                 Object.assign({}, specialData)
             )
         },
@@ -86,64 +75,80 @@ export default {
         /**
          * Save event with close the right sidebar
          */
-        saveAndClose(specialData = {}) {
-            // console.log("saveandclose", specialData)
+        saveAndCloseControl(specialData = {}) {
             this.$formEvent.$emit(
-                EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE,
-                this.runnerId,
+                EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.SAVE_AND_CLOSE,
+                this.runnerIdControl,
                 Object.assign({}, specialData)
             )
+
+            if(this.componentControl.name == 'SidebarControlSelectList'){
+
+            }
+            else{
+
+                this.closeControl()
+            }
         },
 
         /**
          * Close the right sidebar
          * @hook After Closed - Fire an Event to notify (maybe someone will listen :v )
          */
-        close() {
+        closeControl() {
             this.$el.style.width = 0
             document.getElementsByTagName("body")[0].style.marginRight = 0
 
             // fire event after closed (if emit == true)
             this.$formEvent.$emit(
-                EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED,
-                this.runnerId,
+                EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.AFTER_CLOSED,
+                this.runnerIdControl,
                 null
             )
 
             // remove renderer
-            this.component = null
-            this.dynamicData = {}
-            this.runnerId = null
-            this.isOpen = false
+            this.componentControl = null
+            this.dynamicDataControl = {}
+            this.runnerIdControl = null
+            this.isOpenControl = false
         },
 
         /**
          * This method will help us inject our Component into the Sidebar Body
          * @param {SidebarRenderer} rendererInfo - data that will be assigned for the Component
          */
-        updateBody(rendererInfo) {
-            if (this.isOpen) {
-                return
-            }
+        updateBodyControl(rendererInfo) {
+            // if (this.isOpen) {
+            //     return
+            // }
+            // console.log("renderınfo",rendererInfo)
+            this.dynamicDataControl = Object.assign({}, rendererInfo.data)
+            this.componentControl = rendererInfo.component
+            this.runnerIdControl = rendererInfo.runnerId
 
-            this.dynamicData = Object.assign({}, rendererInfo.data)
-            this.component = rendererInfo.component
-            this.runnerId = rendererInfo.runnerId
         }
     },
 
     created() {
+
         // listen to render even
-        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.INJECT, this.updateBody)
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.INJECT, this.updateBodyControl)
 
         // listen to open
-        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, this.open)
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.CONTROL.OPEN, this.openControl)
     }
 }
 </script>
 <style>
 .sidebar {
     margin-top: 55px;
+}
+
+.mirrored {
+    left: 0;
+}
+
+.not_mirrored {
     right: 0;
 }
 </style>
