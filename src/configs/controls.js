@@ -199,76 +199,6 @@ const CONTROLS = {
     //     configComponent: UserConfigView
     // },
 
-    contactName: {
-        name: "CONTACT_NAME",
-        description: "CONTACT_NAME_DESC",
-        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
-
-        configData: {
-            typeAttribute: "text" // date, password
-        },
-
-        // component mapping
-        fieldComponent: ContactNameControl,
-        configComponent: ContactNameConfigView
-    },
-
-    contactSurName: {
-        name: "CONTACT_SURNAME",
-        description: "CONTACT_SURNAME_DESC",
-        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
-
-        configData: {
-            typeAttribute: "text" // date, password
-        },
-
-        // component mapping
-        fieldComponent: ContactSurNameControl,
-        configComponent: ContactSurNameConfigView
-    },
-
-    contactEmail: {
-        name: "CONTACT_EMAIL",
-        description: "CONTACT_EMAIL_DESC",
-        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
-
-        configData: {
-            typeAttribute: "text" // date, password
-        },
-
-        // component mapping
-        fieldComponent: ContactEmailControl,
-        configComponent: ContactEmailConfigView
-    },
-
-    contactPhone: {
-        name: "CONTACT_PHONE",
-        description: "CONTACT_PHONE_DESC",
-        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
-
-        configData: {
-            typeAttribute: "text" // date, password
-        },
-
-        // component mapping
-        fieldComponent: ContactPhoneControl,
-        configComponent: ContactPhoneConfigView
-    },
-
-    contactFax: {
-        name: "CONTACT_FAX",
-        description: "CONTACT_FAX_DESC",
-        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
-
-        configData: {
-            typeAttribute: "text" // date, password
-        },
-
-        // component mapping
-        fieldComponent: ContactFaxControl,
-        configComponent: ContactFaxConfigView
-    },
-
     checkbox: {
         name: "CHECKBOX_LIST",
         description: "CHECKBOX_LIST_DESC",
@@ -337,23 +267,23 @@ const CONTROLS = {
         configComponent: FileUploaderConfigView
     },
 
-    label: {
-        name: "LABEL",
-        description: "LABEL_DESC",
-        disableValue: true,
+    // label: {
+    //     name: "LABEL",
+    //     description: "LABEL_DESC",
+    //     disableValue: true,
 
-        configData: {
-            forAttribute: null, // `for` for any control? (except the Label)
+    //     configData: {
+    //         forAttribute: null, // `for` for any control? (except the Label)
 
-            // Override here in order to not show the Label
-            isShowLabel: false
-        },
+    //         // Override here in order to not show the Label
+    //         isShowLabel: false
+    //     },
 
-        // no need validation
-        disableValidation: true,
-        fieldComponent: LabelControl,
-        configComponent: LabelConfigView
-    },
+    //     // no need validation
+    //     disableValidation: true,
+    //     fieldComponent: LabelControl,
+    //     configComponent: LabelConfigView
+    // },
 
     button: {
         name: "BUTTON",
@@ -379,33 +309,103 @@ const CONTROLS = {
         configComponent: ButtonConfigView
     },
 
-    emptyBlock: {
-        name: "EMPTY_BLOCK",
-        description: "EMPTY_BLOCK_DESC",
-        disableValidation: true,
-        disableValue: true,
+    // emptyBlock: {
+    //     name: "EMPTY_BLOCK",
+    //     description: "EMPTY_BLOCK_DESC",
+    //     disableValidation: true,
+    //     disableValue: true,
 
-        fieldComponent: EmptyBlockControl,
+    //     fieldComponent: EmptyBlockControl,
 
-        configData: {
-            // Override here in order to not show the Label
-            isShowLabel: false
-        }
-    },
+    //     configData: {
+    //         // Override here in order to not show the Label
+    //         isShowLabel: false
+    //     }
+    // },
 
-    textBlock: {
-        name: "TEXT_BLOCK",
-        description: "TEXT_BLOCK_DESC",
-        disableValidation: true,
-        disableValue: true, // if you provide this, the control field value will not be recorded.
+    // textBlock: {
+    //     name: "TEXT_BLOCK",
+    //     description: "TEXT_BLOCK_DESC",
+    //     disableValidation: true,
+    //     disableValue: true, // if you provide this, the control field value will not be recorded.
 
-        fieldComponent: TextBlockControl,
-        configComponent: TextBlockConfigView,
+    //     fieldComponent: TextBlockControl,
+    //     configComponent: TextBlockConfigView,
 
-        configData: {
-            text: ""
-        }
-    }
+    //     configData: {
+    //         text: ""
+    //     }
+    // },
+
+    // contactName: {
+    //     name: "CONTACT_NAME",
+    //     description: "CONTACT_NAME_DESC",
+    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+    //     configData: {
+    //         typeAttribute: "text" // date, password
+    //     },
+
+    //     // component mapping
+    //     fieldComponent: ContactNameControl,
+    //     configComponent: ContactNameConfigView
+    // },
+
+    // contactSurName: {
+    //     name: "CONTACT_SURNAME",
+    //     description: "CONTACT_SURNAME_DESC",
+    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+    //     configData: {
+    //         typeAttribute: "text" // date, password
+    //     },
+
+    //     // component mapping
+    //     fieldComponent: ContactSurNameControl,
+    //     configComponent: ContactSurNameConfigView
+    // },
+
+    // contactEmail: {
+    //     name: "CONTACT_EMAIL",
+    //     description: "CONTACT_EMAIL_DESC",
+    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+    //     configData: {
+    //         typeAttribute: "text" // date, password
+    //     },
+
+    //     // component mapping
+    //     fieldComponent: ContactEmailControl,
+    //     configComponent: ContactEmailConfigView
+    // },
+
+    // contactPhone: {
+    //     name: "CONTACT_PHONE",
+    //     description: "CONTACT_PHONE_DESC",
+    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+    //     configData: {
+    //         typeAttribute: "text" // date, password
+    //     },
+
+    //     // component mapping
+    //     fieldComponent: ContactPhoneControl,
+    //     configComponent: ContactPhoneConfigView
+    // },
+
+    // contactFax: {
+    //     name: "CONTACT_FAX",
+    //     description: "CONTACT_FAX_DESC",
+    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+
+    //     configData: {
+    //         typeAttribute: "text" // date, password
+    //     },
+
+    //     // component mapping
+    //     fieldComponent: ContactFaxControl,
+    //     configComponent: ContactFaxConfigView
+    // }
 };
 
 const CONTROL_DEFAULT_DATA = {

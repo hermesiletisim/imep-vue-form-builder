@@ -2,7 +2,7 @@
     <div class="normal-section">
         <div class="headline-block p5" v-show="section.isShowHeadline">
             <h2 :class="section.headlineAdditionalClass" v-text="section.headline"></h2>
-            <p :class="section.subHeadlineAdditionalClass" v-text="section.subHeadline"></p>
+            <!-- <p :class="section.subHeadlineAdditionalClass" v-text="section.subHeadline"></p> -->
         </div>
 
         <!--- SHOW CONTROLS WITH SORTABLE --->
@@ -14,7 +14,7 @@
                     :parent-id="section.uniqueId" :permissions="permissions" :sortedSections="sortedSections" />
 
                 <p v-if="!hasControl">
-                    Droppable Zone / Controls will be showed here...
+                    Kontroller burada gösterilecek...
                 </p>
             </draggable>
         </div>

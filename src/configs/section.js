@@ -123,7 +123,7 @@ function createNewSection(type, sortOrder = 0) {
     let newSectionData = HELPER.cloneDeep(SECTION_DEFAULT_DATA)
     newSectionData.type = type
     newSectionData.uniqueId = "section-" + HELPER.getUUIDv4()
-    newSectionData.headline = "New Section"
+    newSectionData.headline = "Yeni Bölüm" // "New Section"
     newSectionData.subHeadline = "This is the sub-headline of the new section"
     newSectionData.sortOrder = sortOrder
     if(type == 'table'){

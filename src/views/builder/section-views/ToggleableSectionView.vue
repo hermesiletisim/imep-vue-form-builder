@@ -14,10 +14,10 @@
                 </span>
 
                 <!-- subheadline -->
-                <small :class="[section.subHeadlineAdditionalClass, 'toggleable-sub-headline']"
+                <!-- <small :class="[section.subHeadlineAdditionalClass, 'toggleable-sub-headline']"
                        v-text="section.subHeadline"
                        v-show="section.isShowHeadline">
-                </small>
+                </small> -->
             </h2>
         </div>
 

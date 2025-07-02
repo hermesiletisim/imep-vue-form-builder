@@ -2,7 +2,7 @@
     <div class="table-section">
         <div class="headline-block p5" v-show="section.isShowHeadline">
             <h2 :class="section.headlineAdditionalClass" v-text="section.headline"></h2>
-            <p :class="section.subHeadlineAdditionalClass" v-text="section.subHeadline"></p>
+            <!-- <p :class="section.subHeadlineAdditionalClass" v-text="section.subHeadline"></p> -->
         </div>
 
         <div class="table-wrapper">

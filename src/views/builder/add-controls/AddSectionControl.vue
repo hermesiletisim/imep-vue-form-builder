@@ -1,7 +1,7 @@
 <template>
     <div class="add-section-container" :class="styles.COLUMNS.COL12" @click="showOption">
         <p>
-            <span v-html="$form.getIcon('addOutline', '32px', '32px', '#000')"></span>
+            <span v-html="$form.getIcon('addOutline', '30px', '30px', '#000')"></span>
             <span>{{$ml.get('ADD_SECTION')}}</span>
         </p>
 

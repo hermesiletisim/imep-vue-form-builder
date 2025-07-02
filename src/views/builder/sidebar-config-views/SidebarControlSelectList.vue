@@ -11,7 +11,12 @@
                 <div class="d-flex align-items-center">
                     <div class="icon" v-html="ICONS_ARRAY[controlInfo.name]"></div>
                     <p class="type-headline ml-3 mb-0" v-text="getName(controlInfo)"></p>
-                    <!-- SVG icon -->
+                </div>
+                <div>
+                    <p class="mb-0 ellipsis"
+                    :title="getDescription(controlInfo)">
+                    {{ getShortDescription(controlInfo) }}
+                    </p>
                 </div>
             </a>
         </div>
@@ -67,6 +72,14 @@ export default {
                 return controlInfo.name
             }
             return this.$ml.get(controlInfo.name)
+        },
+
+        getDescription(controlInfo) {
+            return this.$ml.get(controlInfo.description || `${controlInfo.name}_DESC`) || '';
+        },
+        getShortDescription(controlInfo) {
+            const full = this.getDescription(controlInfo);
+            return full.length > 40 ? full.slice(0, 40) + '...' : full;
         },
 
         startDrag(evt, controlKey) {
