@@ -3,7 +3,7 @@
         <div :class="styles.FORM.FORM_GROUP">
             <label>{{$ml.get("NUMBER_OF_ROWS")}}</label>
             <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.rows" />
-            <small>{{$ml.get("ROW_HTML_ATTRIBUTE_CONFIGURATION")}}</small>
+            <!-- <small>{{$ml.get("ROW_HTML_ATTRIBUTE_CONFIGURATION")}}</small> -->
         </div>
 
     </div>

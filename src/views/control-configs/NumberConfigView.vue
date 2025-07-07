@@ -8,7 +8,7 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP" v-show="control.isReal">
-            <label>Decimal Places</label>
+            <label>Ondalık Basamaklar</label>
             <input type="number"
                    step="1"
                    min="0"

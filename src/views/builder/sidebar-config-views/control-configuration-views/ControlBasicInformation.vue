@@ -1,9 +1,9 @@
 <template>
-    <SidebarToggleableContainer headline="Basic Detail">
-        <div :class="styles.FORM.FORM_GROUP">
+    <SidebarToggleableContainer headline="Kontrol Ayarları">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>{{$ml.get("UNIQUE_ID")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" :value="control.uniqueId" readonly>
-        </div>
+        </div> -->
 
         <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>{{$ml.get("UNIQUE_NAME")}}</label>
@@ -15,10 +15,10 @@
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.label">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>{{$ml.get("SUB_LABEL")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.subLabel">
-        </div>
+        </div> -->
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
@@ -27,7 +27,7 @@
             </label>
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>{{$ml.get("FIELD_PLACEHOLDER")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.placeholderText">
         </div>
@@ -35,7 +35,7 @@
         <div :class="styles.FORM.FORM_GROUP">
             <label>{{$ml.get("DEFAULT_VALUE")}}</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.defaultValue">
-        </div>
+        </div> -->
 
     </SidebarToggleableContainer>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>Display Mode</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.displayMode">
@@ -12,9 +12,9 @@
                 </option>
 
             </select>
-        </div>
+        </div> -->
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>Display Position</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.position">
@@ -26,11 +26,11 @@
                 </option>
 
             </select>
-        </div>
+        </div> -->
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                List Selections
+                Listeye Seçenek Ekle
                 <span class="pointer"
                       @click="addListItem"
                       v-html="$form.getIcon('addOutline', '16px', '16px', 'green')">
@@ -48,23 +48,25 @@
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>Item Value</label>
+                    <label>Seçenek İsmi</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
-                        placeholder="Radio/Checkbox-Value"
-                        v-model="listItem.value">
-                </div>
-
-                <div :class="styles.FORM.FORM_GROUP">
-                    <label>Label Text</label>
-                    <input type="text" :class="styles.FORM.FORM_CONTROL"
-                        placeholder="Label text"
+                        placeholder="Seçenek İsmi"
                         v-model="listItem.text">
                 </div>
 
-                <div v-if="control.type=='radio'" :class="styles.FORM.FORM_GROUP">
+                <div :class="styles.FORM.FORM_GROUP">
+                    <label>Öğe değeri</label>
+                    <input type="text" :class="styles.FORM.FORM_CONTROL"
+                        placeholder="Öğe değeri"
+                        v-model="listItem.value">
+                </div>
+
+                
+
+                <!-- <div v-if="control.type=='radio'" :class="styles.FORM.FORM_GROUP">
                     <label>Show Section</label>
                     <Multiselect v-model="listItem.show_section" @open="removeSection()" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="headline" track-by="headline" :options="listSections" :multiple="true" :taggable="false" :close-on-select="false" ></Multiselect>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

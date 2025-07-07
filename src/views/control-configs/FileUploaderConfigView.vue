@@ -2,11 +2,11 @@
     <div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Button Label</label>
+            <label>Buton İsmi</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.buttonLabel">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>Button Classes</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.buttonClasses">
         </div>
@@ -15,36 +15,36 @@
         <div :class="styles.FORM.FORM_GROUP">
             <label>(API) Post-Action URL</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.postActionURL">
-        </div>
+        </div> -->
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Accept Mimes</label>
+            <label>Desteklenen Dosya Türleri</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.accept">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Allowed Extensions</label>
+            <label>İzin Verilen Uzantılar</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.extensions">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Max Size (in bytes - 0 for unlimited)</label>
+            <label>Maksimum Boyut (byte türünden - 0: sınırsız)</label>
             <input type="number" :class="styles.FORM.FORM_CONTROL" v-model="control.maxSize">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Multiple?</label> <br />
+            <label>Birden Fazla Dosya Yükleme</label> <br />
             <input type="checkbox" v-model="control.isMultiple">
         </div>
 
         <div v-show="control.isMultiple">
             <div :class="styles.FORM.FORM_GROUP">
-                <label>Maximum Files can be selected</label>
+                <label>Maksimum Yüklenebilecek Dosya Sayısı</label>
                 <input type="number" :class="styles.FORM.FORM_CONTROL" v-model="control.maximumFiles" max="99">
             </div>
         </div>
 
-        <GlobalKeyValueItemConfiguration
+        <!-- <GlobalKeyValueItemConfiguration
             :items="control.headers"
 
             block-title="Additional Headers"
@@ -60,7 +60,7 @@
             title="POST Data"
             key-title="POST Key Name"
             value-title="POST Value"
-        />
+        /> -->
     </div>
 </template>
 

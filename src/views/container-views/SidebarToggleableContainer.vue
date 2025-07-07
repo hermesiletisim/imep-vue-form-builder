@@ -6,7 +6,7 @@
                 <span class="type-headline d-flex  align-items-center" v-text="headline"></span>
 
                 <!-- subheadline -->
-                <small class="toggleable-sub-headline" v-text="subHeadline"></small>
+                <!-- <small class="toggleable-sub-headline" v-text="subHeadline"></small> -->
 
                 <!-- chevron icon to show/hide -->
                 <span class="toggle-item ml-auto" 

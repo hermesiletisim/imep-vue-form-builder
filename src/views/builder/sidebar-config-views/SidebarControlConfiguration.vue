@@ -8,15 +8,9 @@
             :control="control"
         />
 
-        <ControlStylingInformation
-            v-if="permissions.canUpdateControlStyling"
-            :control="control"
-        />
-
-        <!-- Control specific configuration / Only render it if the control has specific configuration view -->
-        <SidebarToggleableContainer
+         <SidebarToggleableContainer
                 v-if="specificConfigurationView && permissions.canUpdateControlSpecialConfiguration"
-                headline="Control Specific Configuration"
+                headline="Kontrol Özelleştirme"
         >
             <component
                 :is="specificConfigurationView"
@@ -25,11 +19,19 @@
             />
         </SidebarToggleableContainer>
 
-        <!-- Validation of the control / same for all -->
-        <ControlValidationInformation
-            v-if="!isValidationDisabled && permissions.canUpdateControlValidation"
+        <ControlStylingInformation
+            v-if="permissions.canUpdateControlStyling"
             :control="control"
         />
+
+        <!-- Control specific configuration / Only render it if the control has specific configuration view -->
+       
+
+        <!-- Validation of the control / same for all -->
+        <!-- <ControlValidationInformation
+            v-if="!isValidationDisabled && permissions.canUpdateControlValidation"
+            :control="control"
+        /> -->
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)"> 

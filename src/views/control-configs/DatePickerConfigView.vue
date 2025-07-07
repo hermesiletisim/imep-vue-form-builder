@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>{{$ml.get("DATA_RETURN_TYPE")}}</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.returnType">
@@ -12,7 +12,7 @@
                 </option>
 
             </select>
-        </div>
+        </div> -->
 
         <!--- Only show this configuration if return Type is Format --->
         <div :class="styles.FORM.FORM_GROUP" v-show="control.returnType === listReturnTypes.format.val">

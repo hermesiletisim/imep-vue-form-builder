@@ -242,7 +242,7 @@
 .vue-form-builder .control-option-container {
     position: absolute;
     top: 0;
-    left: 97%;
+    /* left: 97%; */
     border: 1px solid #bdc3c7;
     background-color: white;
     display: none;
@@ -255,7 +255,7 @@
 
 .vue-form-builder .control-option-container .option-control {
     padding: 2px 5px;
-    border-bottom: 1px solid #bdc3c7;
+    /* border-bottom: 1px solid #bdc3c7; */
     cursor: pointer;
 }
 

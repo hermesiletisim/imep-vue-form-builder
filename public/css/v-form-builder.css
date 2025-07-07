@@ -228,10 +228,12 @@
 .vue-form-builder .control-option-container {
     position: absolute;
     top: 0;
-    left: 97%;
-    border: 1px solid #bdc3c7;
-    background-color:white;
-    display: none;
+    right: 0 !important;
+    flex-direction: row-reverse;
+    margin-right: 22px !important;
+    border: 1px solid transparent !important;
+    background-color:transparent !important;
+    display: flex !important;
 }
 
 .vue-form-builder .control-view-wrapper:hover .control-option-container {
@@ -241,7 +243,7 @@
 
 .vue-form-builder .control-option-container .option-control {
     padding: 2px 5px;
-    border-bottom: 1px solid #bdc3c7;
+    /* border-bottom: 1px solid #bdc3c7; */
     cursor: pointer;
 }
 

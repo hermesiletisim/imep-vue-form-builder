@@ -57,31 +57,31 @@ const DATE_PICKER_RETURN_TYPES = {
 const DATE_PICKER_START_DATES = {
     monday: {
         val: 1,
-        description: "Monday"
+        description: "Pazartesi"
     },
     tuesday: {
         val: 2,
-        description: "Tuesday"
+        description: "Salı"
     },
     wednesday: {
         val: 3,
-        description: "Wednesday"
+        description: "Çarşamba"
     },
     thursday: {
         val: 4,
-        description: "Thursday"
+        description: "Perşembe"
     },
     friday: {
         val: 5,
-        description: "Friday"
+        description: "Cuma"
     },
     saturday: {
         val: 6,
-        description: "Saturday"
+        description: "Cumartesi"
     },
     sunday: {
         val: 0,
-        description: "Sunday"
+        description: "Pazar"
     },
 }
 

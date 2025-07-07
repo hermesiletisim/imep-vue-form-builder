@@ -1,13 +1,13 @@
 <template>
     <div>
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>
                 {{$ml.get("MULTIPLE_SELECTION")}}
                 <input type="checkbox" v-model="control.multiple">
             </label>
-        </div>
+        </div> -->
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>{{$ml.get("OPTION_DATA_LIST_MODE")}}</label>
             <select :class="styles.FORM.FORM_CONTROL"
                     v-model="control.dataMode">
@@ -19,7 +19,7 @@
                 </option>
 
             </select>
-        </div>
+        </div> -->
 
         <div v-show="this.control.dataMode === listDataModes.api.val">
             <div :class="styles.FORM.FORM_GROUP">
@@ -83,18 +83,20 @@
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>{{$ml.get("ITEM_VALUE")}}</label>
+                    <label>{{$ml.get("LABEL_TEXT")}}</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
-                           placeholder="Radio-Value"
-                           v-model="listItem.value">
+                           placeholder="Seçenek İsmi"
+                           v-model="listItem.text">
                 </div>
 
                 <div :class="styles.FORM.FORM_GROUP">
-                    <label>{{$ml.get("LABEL_TEXT")}}</label>
+                    <label>{{$ml.get("ITEM_VALUE")}}</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
-                           placeholder="Label text"
-                           v-model="listItem.text">
+                           placeholder="Öğe Değeri"
+                           v-model="listItem.value">
                 </div>
+
+                
             </div>
 
         </div>

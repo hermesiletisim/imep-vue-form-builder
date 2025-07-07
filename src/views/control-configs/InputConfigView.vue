@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Input `type` attribute</label>
+            <label>Giriş türünü seçiniz</label>
             <select type="text"
                     :class="styles.FORM.FORM_CONTROL"
                     v-model="control.typeAttribute"
@@ -25,7 +25,7 @@
 
         computed: {
             inputTypeAttributes() {
-                return ['text', 'password', 'hidden']
+                return ['Metin', 'Şifre', 'Gizli']
             },
         }
     }
