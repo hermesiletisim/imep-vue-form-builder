@@ -337,75 +337,75 @@ const CONTROLS = {
     //     }
     // },
 
-    // contactName: {
-    //     name: "CONTACT_NAME",
-    //     description: "CONTACT_NAME_DESC",
-    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+    contactName: {
+        name: "CONTACT_NAME",
+        description: "CONTACT_NAME_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
 
-    //     configData: {
-    //         typeAttribute: "text" // date, password
-    //     },
+        configData: {
+            typeAttribute: "text" // date, password
+        },
 
-    //     // component mapping
-    //     fieldComponent: ContactNameControl,
-    //     configComponent: ContactNameConfigView
-    // },
+        // component mapping
+        fieldComponent: ContactNameControl,
+        configComponent: ContactNameConfigView
+    },
 
-    // contactSurName: {
-    //     name: "CONTACT_SURNAME",
-    //     description: "CONTACT_SURNAME_DESC",
-    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+    contactSurName: {
+        name: "CONTACT_SURNAME",
+        description: "CONTACT_SURNAME_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
 
-    //     configData: {
-    //         typeAttribute: "text" // date, password
-    //     },
+        configData: {
+            typeAttribute: "text" // date, password
+        },
 
-    //     // component mapping
-    //     fieldComponent: ContactSurNameControl,
-    //     configComponent: ContactSurNameConfigView
-    // },
+        // component mapping
+        fieldComponent: ContactSurNameControl,
+        configComponent: ContactSurNameConfigView
+    },
 
-    // contactEmail: {
-    //     name: "CONTACT_EMAIL",
-    //     description: "CONTACT_EMAIL_DESC",
-    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+    contactEmail: {
+        name: "CONTACT_EMAIL",
+        description: "CONTACT_EMAIL_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
 
-    //     configData: {
-    //         typeAttribute: "text" // date, password
-    //     },
+        configData: {
+            typeAttribute: "text" // date, password
+        },
 
-    //     // component mapping
-    //     fieldComponent: ContactEmailControl,
-    //     configComponent: ContactEmailConfigView
-    // },
+        // component mapping
+        fieldComponent: ContactEmailControl,
+        configComponent: ContactEmailConfigView
+    },
 
-    // contactPhone: {
-    //     name: "CONTACT_PHONE",
-    //     description: "CONTACT_PHONE_DESC",
-    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+    contactPhone: {
+        name: "CONTACT_PHONE",
+        description: "CONTACT_PHONE_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
 
-    //     configData: {
-    //         typeAttribute: "text" // date, password
-    //     },
+        configData: {
+            typeAttribute: "text" // date, password
+        },
 
-    //     // component mapping
-    //     fieldComponent: ContactPhoneControl,
-    //     configComponent: ContactPhoneConfigView
-    // },
+        // component mapping
+        fieldComponent: ContactPhoneControl,
+        configComponent: ContactPhoneConfigView
+    },
 
-    // contactFax: {
-    //     name: "CONTACT_FAX",
-    //     description: "CONTACT_FAX_DESC",
-    //     icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
+    contactFax: {
+        name: "CONTACT_FAX",
+        description: "CONTACT_FAX_DESC",
+        icon: "editPencil", // Follow ICON in `icon-facade.js` to see how it works.
 
-    //     configData: {
-    //         typeAttribute: "text" // date, password
-    //     },
+        configData: {
+            typeAttribute: "text" // date, password
+        },
 
-    //     // component mapping
-    //     fieldComponent: ContactFaxControl,
-    //     configComponent: ContactFaxConfigView
-    // }
+        // component mapping
+        fieldComponent: ContactFaxControl,
+        configComponent: ContactFaxConfigView
+    }
 };
 
 const CONTROL_DEFAULT_DATA = {
