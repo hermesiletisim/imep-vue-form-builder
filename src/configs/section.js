@@ -124,7 +124,7 @@ function createNewSection(type, sortOrder = 0) {
     newSectionData.type = type
     newSectionData.uniqueId = "section-" + HELPER.getUUIDv4()
     newSectionData.headline = "Yeni Bölüm" // "New Section"
-    newSectionData.subHeadline = "This is the sub-headline of the new section"
+    // newSectionData.subHeadline = "This is the sub-headline of the new section"
     newSectionData.sortOrder = sortOrder
     if(type == 'table'){
         newSectionData.tableObject = {

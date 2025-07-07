@@ -8,8 +8,8 @@
         <div class="table-wrapper">
 
             <div class="mb-2">
-                <button type="button" class="btn btn-light btn-sm mr-2" style="font-size:0.8rem;" @click="openModal">Add column</button>
-                <button type="button" class="btn btn-light btn-sm" style="font-size:0.8rem;" @click="addRow">Add row</button>
+                <button type="button" class="btn btn-light btn-sm mr-2" style="font-size:0.8rem;" @click="openModal">Kolon Ekle</button>
+                <button type="button" class="btn btn-light btn-sm" style="font-size:0.8rem;" @click="addRow">Satır Ekle</button>
             </div>
             <vue-excel-editor :class="styles.TABLE.TABLE_CLASS" ref="grid" v-model="section.tableObject.data" no-footer>
                 <vue-excel-column
@@ -26,14 +26,14 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header py-2">
-                            <h6 class="mt-2"><strong>Column name</strong></h6>
+                            <h6 class="mt-2"><strong>Kolon İsmi</strong></h6>
                         </div>
                         <div class="modal-body">
                             <input class="new-input bg-white" type="text" v-model="newColumn">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" @click="addColumn">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                            <button type="button" class="btn btn-primary" @click="addColumn">Kaydet</button>
                         </div>
                     </div>
                 </div>

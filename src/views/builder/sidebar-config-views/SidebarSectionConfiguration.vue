@@ -1,15 +1,15 @@
 <template>
     <div class="sidebar-form-configuration">
-        <h5>Section Configuration</h5>
+        <h5>Bölüm Ayarları</h5>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Headline</label>
+            <label>Bölüm İsmi</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="sectionConfiguration.headline">
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP">
+        <!-- <div :class="styles.FORM.FORM_GROUP">
             <label>Headline Additional Class (CSS)</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
@@ -28,22 +28,22 @@
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="sectionConfiguration.subHeadlineAdditionalClass">
-        </div>
+        </div> -->
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Show Section Headline?
+                Bölüm İsmini Göster
                 <input type="checkbox" v-model="sectionConfiguration.isShowHeadline">
             </label>
         </div>
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
-                Save
+                Kaydet
             </button>
-            <button :class="styles.BUTTON.INFO" @click="save(true)">
+            <!-- <button :class="styles.BUTTON.INFO" @click="save(true)">
                 Save & Close
-            </button>
+            </button> -->
         </div>
     </div>
 </template>

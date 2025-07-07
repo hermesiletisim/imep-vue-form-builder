@@ -77209,7 +77209,7 @@ var vue2_datepicker = __webpack_require__("411c");
           noMatchedColumnName: 'No matched column name',
           invalidInputValue: 'Invalid input value',
           missingKeyColumn: 'Missing key column',
-          noRecordIndicator: 'No record'
+          noRecordIndicator: 'Kayıt Yok'
         };
       }
     },
