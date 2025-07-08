@@ -37,7 +37,7 @@
         <div :class="styles.FORM.FORM_GROUP">
             <label>
                 {{$ml.get("MINIMUM_DATE")}}
-                <IconTooltip icon="informationOutline" text="Follow this format: YYYY-MM-DD. Empty for none." />
+                <IconTooltip icon="informationOutline" text="Bu Formatı Kullanın: YYYY-MM-DD. Hiçbiri için boş bırakın." />
             </label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.minDate" />
             <small>{{$ml.get("MINIMUM_DATE_INFO")}}</small>
@@ -46,7 +46,7 @@
         <div :class="styles.FORM.FORM_GROUP">
             <label>
                 {{$ml.get("MAXIMUM_DATE")}}
-                <IconTooltip icon="informationOutline" text="Follow this format: YYYY-MM-DD. Empty for none." />
+                <IconTooltip icon="informationOutline" text="Bu Formatı Kullanın: YYYY-MM-DD. Hiçbiri için boş bırakın." />
             </label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.maxDate"  />
             <small>{{$ml.get("MAXIMUM_DATE_INFO")}}</small>
@@ -67,12 +67,12 @@
 
         <!--- Only show this configuration if date-range --->
         <div :class="styles.FORM.FORM_GROUP" v-show="!control.singleMode">
-            <label>Minimum Day in Range (0 for none)</label>
+            <label>Aralıktaki Minumum Gün (Hiçbiri için 0)</label>
             <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.minDays" />
         </div>
 
         <div :class="styles.FORM.FORM_GROUP" v-show="!control.singleMode">
-            <label>Maximum Day in Range (0 for none)</label>
+            <label>Aralıktaki Maksimum Gün (Hiçbiri için 0)</label>
             <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.maxDays" />
         </div>
 
